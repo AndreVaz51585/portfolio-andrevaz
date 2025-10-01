@@ -1,96 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>André Vaz Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>André Vaz | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/3f9df9b4ad.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <h1>André Vaz</h1>
-        <p>Computer Engineering Student</p>
-    </header>
+  <!-- Header / Hero -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>André Vaz</h1>
+      <p class="subtitle">Computer Engineering Student | Passion for Software & Systems</p>
+      <div class="hero-buttons">
+        <a href="https://www.linkedin.com/in/andrevaz" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="assets/CurriculoCV.pdf" target="_blank" class="btn">Curriculo</a>
+      </div>
+    </div>
+  </header>
 
-    <!-- ===================== -->
-    <!-- Completed Projects -->
-    <!-- ===================== -->
-    <section id="projects">
-        <h2>Completed Projects</h2>
-        <div class="projects-container">
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a Computer Engineering student with strong focus on software development, algorithms, and system design. 
+      I enjoy tackling challenging projects, from low-level hardware integrations to modern full-stack applications.
+    </p>
+  </section>
 
-            <!-- Project 1 -->
-            <div class="project-card">
-                <img src="assets/snake.png" alt="">
-                <h3>Snake Game</h3>
-                <p>Recreation of Snake Game in Kotlin using the Canvas API.</p>
-                <p><strong>Tools:</strong> Kotlin</p>
-                <a href="https://github.com/AndreVaz51585/SnakeGame" class="btn">View on GitHub</a>
-            </div>
+  <!-- Skills -->
+<section id="skills">
+  <h2>Skills & Competências</h2>
+  <div class="skills-grid">
 
-            <!-- Project 2 -->
-            <div class="project-card">
-                <img src="assets/lic.png" alt="">
-                <h3>Roullete Game</h3>
-                <p>Hardware/Software split: game implemented in Kotlin, with VHDL on an FPGA handling keypad input and display output.</p>
-                <p><strong>Tools:</strong> Kotlin, VHDL</p>
-                <a href="https://github.com/rodrigodorey/licSoftware.git" class="btn">View on GitHub</a>
-            </div>
+    <!-- Linguagens -->
+    <div class="skill-category">
+      <h3>Linguagens</h3>
+      <p>Kotlin, JavaScript, Python, C, Assembly</p>
+    </div>
 
-            <!-- Project 3 -->
-            <div class="project-card">
-                <img src="assets/ipw.png" alt="">
-                <h3>Foccacia-webApi</h3>
-                <p>Full-stack project: a backend service orchestrating calls to a football API and a web interface to search and view results.</p>
-                <p><strong>Tools:</strong> JavaScript, HTML, CSS, REST API, ElasticSearch, Node.js</p>
-                <a href="https://github.com/AndreVaz51585/Foccacia-webAPI.git" class="btn">View on GitHub</a>
-            </div>
+    <!-- Web & Frameworks -->
+    <div class="skill-category">
+      <h3>Web & Frameworks</h3>
+      <p>HTML, CSS, Spring MVC, Node.js, Express, JPA, http4k, Jakarta</p>
+    </div>
 
-            <!-- Project 4 -->
-            <div class="project-card">
-                <img src="assets/LS.png" alt="">
-                <h3>Paddle Courts Manager</h3>
-                <p>Layered architecture (responsive frontend + REST API + relational DB) supporting CRUD for clubs/courts/users, free-slot checks and booking records.</p>
-                <p><strong>Tools:</strong> Kotlin, JavaScript, HTML, CSS, PostgreSQL, Express, http4k</p>
-                <a href="https://github.com/AndreVaz51585/Paddle-Courts-Manager.git" class="btn">View on GitHub</a>
-            </div>
-        </div>
-    </section>
+    <!-- Bases de Dados -->
+    <div class="skill-category">
+      <h3>Bases de Dados</h3>
+      <p>SQL, PostgreSQL, JDBC</p>
+    </div>
 
-    <!-- ===================== -->
-    <!-- In Development Projects -->
-    <!-- ===================== -->
-    <section id="in-progress">
-        <h2>Projects in Development</h2>
-        <div class="projects-container">
+    <!-- Ferramentas & Plataformas -->
+    <div class="skill-category">
+      <h3>Ferramentas & Plataformas</h3>
+      <p>Android Studio, Render</p>
+    </div>
 
-            <!-- Project 5 -->
-            <div class="project-card">
-                <img src="assets/Reversi.png" alt="">
-                <h3>Reversi Game kotlin implementation </h3>
-                <p>Implementation of the classic Reversi game in Kotlin, featuring immutable states to ensure safe state management. The final phase will include an AI opponent and game visualization using Canvas.</p>
-                <p><strong>Tools:</strong> kotlin, Canvas API, Ai alghoritms.</p>
-                <a href="https://github.com/AndreVaz51585/project5" class="btn">View on GitHub</a>
-            </div>
+  </div>
+</section>
 
-            <!-- Project 6 -->
-            <div class="project-card">
-                <img src="assets/PokerDiceWebVersion.png" alt="">
-                <h3></h3>
-                <p>Multiplayer implementation of Poker-Dice on Android. Developed with Jetpack Compose, providing a modern and responsive UI for mobile gameplay.</p>
-                <p><strong>Tools:</strong> Kotlin, Android Studio, Jetpack Compose</p>
-                <a href="https://github.com/AndreVaz51585/project6" class="btn">View on GitHub</a>
-            </div>
+  <!-- Completed Projects -->
+  <section id="projects">
+    <h2>Completed Projects</h2>
+    <div class="projects-container">
 
-            <!-- Project 7 -->
-            <div class="project-card">
-                <img src="assets/PokerDiceAndroidVersion.png" alt="">
-                <h3></h3>
-                <p>Web service using http4k in Kotlin for backend API demonstrationWeb-based version of Poker-Dice with a Spring MVC backend and React frontend. Containerized using Docker to facilitate deployment and scalability.</p>
-                <p><strong>Tools:</strong> Kotlin/java (Spring MVC), React, Html,CSS, JavaScript, Docker</p>
-                <a href="https://github.com/AndreVaz51585/project6" class="btn">View on GitHub</a>
-            </div>
+      <div class="project-card">
+        <img src="assets/snake.png" alt="Snake Game">
+        <h3>Snake Game</h3>
+        <p>Recreation of Snake Game in Kotlin using the Canvas API.</p>
+        <p><strong>Tools:</strong> Kotlin</p>
+        <a href="https://github.com/AndreVaz51585/SnakeGame" class="btn">View on GitHub</a>
+      </div>
 
-        </div>
-    </section>
+      <div class="project-card">
+        <img src="assets/lic.png" alt="Roulette Game">
+        <h3>Roulette Game</h3>
+        <p>Hardware/Software split: Kotlin for game logic + VHDL on FPGA for keypad and display.</p>
+        <p><strong>Tools:</strong> Kotlin, VHDL</p>
+        <a href="https://github.com/rodrigodorey/licSoftware.git" class="btn">View on GitHub</a>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/ipw.png" alt="Foccacia Web API">
+        <h3>Foccacia-webApi</h3>
+        <p>Backend service with football API + frontend search and visualization.</p>
+        <p><strong>Tools:</strong> JavaScript, HTML, CSS, Node.js, ElasticSearch</p>
+        <a href="https://github.com/AndreVaz51585/Foccacia-webAPI.git" class="btn">View on GitHub</a>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/LS.png" alt="Paddle Courts Manager">
+        <h3>Paddle Courts Manager</h3>
+        <p>Layered architecture with CRUD, booking system and responsive frontend.</p>
+        <p><strong>Tools:</strong> Kotlin, JavaScript, PostgreSQL, http4k, Express</p>
+        <a href="https://github.com/AndreVaz51585/Paddle-Courts-Manager.git" class="btn">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+     <!-- Projects in Development -->
+  <section id="in-progress">
+    <h2>Projects in Development</h2>
+    <div class="projects-container">
+
+      <div class="project-card">
+        <img src="assets/Reversi.png" alt="Reversi Game">
+        <h3>Reversi Game</h3>
+        <p>Immutable-state Reversi in Kotlin. Future: AI opponent + Canvas UI.</p>
+        <p><strong>Tools:</strong> Kotlin, Canvas API</p>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/PokerDiceWebVersion.png" alt="Poker Dice Android">
+        <h3>Poker Dice Android</h3>
+        <p>Multiplayer Poker-Dice on Android with Jetpack Compose UI.</p>
+        <p><strong>Tools:</strong> Kotlin, Android Studio, Jetpack Compose</p>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/PokerDiceAndroidVersion.png" alt="Poker Dice Web">
+        <h3>Poker Dice Web</h3>
+        <p>Web version with Spring MVC backend + React frontend. Dockerized for deployment.</p>
+        <p><strong>Tools:</strong> Kotlin/Java, Spring MVC, React, Docker</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 André Vaz | Built with ❤️</p>
+    <div class="socials">
+      <a href="https://github.com/AndreVaz51585" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:andre.vaz2005@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </footer>
 </body>
 </html>
