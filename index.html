@@ -1,142 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>André Vaz | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/3f9df9b4ad.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <!-- Header / Hero -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>André Vaz</h1>
-      <p class="subtitle">Computer Engineering Student | Passion for Software & Systems</p>
-      <div class="hero-buttons">
-        <a href="https://www.linkedin.com/in/andrevaz" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="assets/CurriculoCV.pdf" target="_blank" class="btn">Curriculo</a>
+  <!-- Top Nav -->
+  <nav class="nav">
+    <div class="nav-inner container">
+      <a class="brand" href="#top">
+        <span class="brand-dot"></span> André Vaz
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#in-progress">In progress</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="top" class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-grid">
+      <div class="hero-card">
+        <p class="kicker">Portfolio</p>
+        <h1>André Vaz</h1>
+        <p class="subtitle">Computer Engineering Student</p>
+
+        <p class="hero-desc">
+          Fullstack-focused student interested in algorithms, system design and building real-world software —
+          from low-level integrations to modern web and mobile apps.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="https://www.linkedin.com/in/andrevaz" target="_blank">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a class="btn ghost" href="assets/CurriculoCV.pdf" target="_blank">
+            <i class="fas fa-file-pdf"></i> Currículo
+          </a>
+        </div>
+
+        <div class="quick">
+          <span class="pill"><i class="fas fa-code"></i> Fullstack</span>
+          <span class="pill"><i class="fas fa-mobile-alt"></i> Android</span>
+          <span class="pill"><i class="fas fa-diagram-project"></i> Systems</span>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="stat-card">
+          <h3>Highlights</h3>
+          <ul>
+            <li><i class="fas fa-check"></i> Kotlin-first projects</li>
+            <li><i class="fas fa-check"></i> Web APIs + Frontends</li>
+            <li><i class="fas fa-check"></i> Databases & deployment</li>
+          </ul>
+        </div>
+
+        <div class="stat-card">
+          <h3>Contact</h3>
+          <p class="muted">
+            Prefer LinkedIn, but email works too.
+          </p>
+          <div class="mini-actions">
+            <a class="btn small" href="mailto:andre.vaz2005@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+            <a class="btn small ghost" href="https://github.com/AndreVaz51585" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- About -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I'm a Computer Engineering student with strong focus on software development, algorithms, and system design. 
-      I enjoy tackling challenging projects, from low-level hardware integrations to modern full-stack applications.
-    </p>
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>About Me</h2>
+        <p class="muted">
+          I'm a Computer Engineering student who enjoys turning ideas into working software.
+          I focus mainly on full-stack development, but I’m equally interested in algorithms,
+          system design, and understanding how things work under the hood.
+          I like building projects that solve real problems and help me grow as a developer.
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- Skills -->
-<section id="skills">
-  <h2>Skills & Competências</h2>
-  <div class="skills-grid">
-
-    <!-- Linguagens -->
-    <div class="skill-category">
-      <h3>Linguagens</h3>
-      <p>Kotlin, JavaScript, Python, C, Assembly</p>
-    </div>
-
-    <!-- Web & Frameworks -->
-    <div class="skill-category">
-      <h3>Web & Frameworks</h3>
-      <p>HTML, CSS, Spring MVC, Node.js, Express, JPA, http4k, Jakarta</p>
-    </div>
-
-    <!-- Bases de Dados -->
-    <div class="skill-category">
-      <h3>Bases de Dados</h3>
-      <p>SQL, PostgreSQL, JDBC</p>
-    </div>
-
-    <!-- Ferramentas & Plataformas -->
-    <div class="skill-category">
-      <h3>Ferramentas & Plataformas</h3>
-      <p>Android Studio, Render</p>
-    </div>
-
-  </div>
-</section>
-
-  <!-- Completed Projects -->
-  <section id="projects">
-    <h2>Completed Projects</h2>
-    <div class="projects-container">
-
-      <div class="project-card">
-        <img src="assets/snake.png" alt="Snake Game">
-        <h3>Snake Game</h3>
-        <p>Recreation of Snake Game in Kotlin using the Canvas API.</p>
-        <p><strong>Tools:</strong> Kotlin</p>
-        <a href="https://github.com/AndreVaz51585/SnakeGame" class="btn">View on GitHub</a>
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Skills & Competencies</h2>
+        <p class="muted">A snapshot of the technologies I use frequently.</p>
       </div>
 
-      <div class="project-card">
-        <img src="assets/lic.png" alt="Roulette Game">
-        <h3>Roulette Game</h3>
-        <p>Hardware/Software split: Kotlin for game logic + VHDL on FPGA for keypad and display.</p>
-        <p><strong>Tools:</strong> Kotlin, VHDL</p>
-        <a href="https://github.com/rodrigodorey/licSoftware.git" class="btn">View on GitHub</a>
-      </div>
+      <div class="grid skills">
+        <div class="card">
+          <div class="card-top">
+            <i class="fas fa-code"></i>
+            <h3>Languages</h3>
+          </div>
+          <p>Kotlin, JavaScript, Python, C, Assembly</p>
+        </div>
 
-      <div class="project-card">
-        <img src="assets/ipw.png" alt="Foccacia Web API">
-        <h3>Foccacia-webApi</h3>
-        <p>Backend service with football API + frontend search and visualization.</p>
-        <p><strong>Tools:</strong> JavaScript, HTML, CSS, Node.js, ElasticSearch</p>
-        <a href="https://github.com/AndreVaz51585/Foccacia-webAPI.git" class="btn">View on GitHub</a>
-      </div>
+        <div class="card">
+          <div class="card-top">
+            <i class="fas fa-layer-group"></i>
+            <h3>Web & Frameworks</h3>
+          </div>
+          <p>HTML, CSS, Spring MVC, Node.js, Express, JPA, http4k, Jakarta, React, Jetpack Compose</p>
+        </div>
 
-      <div class="project-card">
-        <img src="assets/LS.png" alt="Paddle Courts Manager">
-        <h3>Paddle Courts Manager</h3>
-        <p>Layered architecture with CRUD, booking system and responsive frontend.</p>
-        <p><strong>Tools:</strong> Kotlin, JavaScript, PostgreSQL, http4k, Express</p>
-        <a href="https://github.com/AndreVaz51585/Paddle-Courts-Manager.git" class="btn">View on GitHub</a>
+        <div class="card">
+          <div class="card-top">
+            <i class="fas fa-database"></i>
+            <h3>Databases & DevOps</h3>
+          </div>
+          <p>SQL, PostgreSQL, JDBC, MongoDB, Nginx, Docker</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <i class="fas fa-screwdriver-wrench"></i>
+            <h3>Tools & Platforms</h3>
+          </div>
+          <p>Android Studio, Render, ngrok</p>
+        </div>
       </div>
     </div>
   </section>
 
-     <!-- Projects in Development -->
-  <section id="in-progress">
-    <h2>Projects in Development</h2>
-    <div class="projects-container">
-
-      <div class="project-card">
-        <img src="assets/Reversi.png" alt="Reversi Game">
-        <h3>Reversi Game</h3>
-        <p>Immutable-state Reversi in Kotlin. Future: AI opponent + Canvas UI.</p>
-        <p><strong>Tools:</strong> Kotlin, Canvas API</p>
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-head row">
+        <div>
+          <h2>Completed Projects</h2>
+          <p class="muted">Selected work with a focus on clean architecture and practical delivery.</p>
+        </div>
       </div>
 
-      <div class="project-card">
-        <img src="assets/PokerDiceWebVersion.png" alt="Poker Dice Android">
-        <h3>Poker Dice Android</h3>
-        <p>Multiplayer Poker-Dice on Android with Jetpack Compose UI.</p>
-        <p><strong>Tools:</strong> Kotlin, Android Studio, Jetpack Compose</p>
+      <div class="grid projects">
+        <!-- 1 -->
+        <article class="project">
+          <div class="thumb">
+            <img src="assets/snake.png" alt="Snake Game">
+          </div>
+          <div class="project-body">
+            <h3>Snake Game</h3>
+            <p>Recreation of Snake Game in Kotlin using the Canvas API.</p>
+            <div class="tags">
+              <span>Kotlin</span><span>Canvas</span>
+            </div>
+            <a class="btn small" href="https://github.com/AndreVaz51585/SnakeGame.git" target="_blank">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="project">
+          <div class="thumb">
+            <img src="assets/lic.png" alt="Roulette Game">
+          </div>
+          <div class="project-body">
+            <h3>Roulette Game</h3>
+            <p>Hardware/Software split: Kotlin for game logic + VHDL on FPGA for keypad and display.</p>
+            <div class="tags">
+              <span>Kotlin</span><span>VHDL</span><span>FPGA</span>
+            </div>
+            <a class="btn small" href="https://github.com/rodrigodorey/licSoftware.git" target="_blank">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </article>
+
+        <!-- 3 -->
+
+         <article class="project">
+          <div class="thumb">
+            <img src="assets/ChelasPokerDiceWEB.png" alt="Poker Dice Web">
+          </div>
+          <div class="project-body">
+            <h3>Poker Dice Web</h3>
+            <p>Web version with Spring MVC backend + React frontend. Dockerized for deployment.</p>
+            <div class="tags">
+              <span>Spring MVC</span><span>React</span><span>Docker</span><span>Nginx</span>
+            </div>
+            <div class="muted small-note">Repo link soon</div>
+          </div>
+        </article>
+
+
+        <!---4-->
+        <article class="project">
+          <div class="thumb">
+            <img src="assets/ipw.png" alt="Foccacia Web API">
+          </div>
+          <div class="project-body">
+            <h3>Foccacia-webApi</h3>
+            <p>Backend service with football API + frontend search and visualization.</p>
+            <div class="tags">
+              <span>Node.js</span><span>JS</span><span>ElasticSearch</span>
+            </div>
+            <a class="btn small" href="https://github.com/AndreVaz51585/Foccacia-webAPI.git" target="_blank">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </article>
+
+  
+        <!-- 5 -->
+        <article class="project">
+          <div class="thumb">
+            <img src="assets/Reversi.png" alt="Reversi Game">
+          </div>
+          <div class="project-body">
+            <h3>Reversi Game</h3>
+            <p>Immutable-state Reversi in Kotlin. Future: AI opponent + Canvas UI.</p>
+            <div class="tags">
+              <span>Kotlin</span><span>Jetpack Compose</span><span>MongoDB</span>
+            </div>
+            <div class="muted small-note">Repo link soon</div>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="project">
+          <div class="thumb">
+            <img src="assets/ChelasPokerDiceandroid.png" alt="Poker Dice Android">
+          </div>
+          <div class="project-body">
+            <h3>Poker Dice Android</h3>
+            <p>Multiplayer Poker-Dice on Android with Jetpack Compose UI.</p>
+            <div class="tags">
+              <span>Kotlin</span><span>Android</span><span>Compose</span>
+            </div>
+            <div class="muted small-note">Repo link soon</div>
+          </div>
+        </article>
+
+        <!-- 7 -->
+         <article class="project">
+          <div class="thumb">
+            <img src="assets/LS.png" alt="Paddle Courts Manager">
+          </div>
+          <div class="project-body">
+            <h3>Paddle Courts Manager</h3>
+            <p>Layered architecture with CRUD, booking system and responsive frontend.</p>
+            <div class="tags">
+              <span>Kotlin</span><span>PostgreSQL</span><span>Express</span><span>JS</span><span>http4k</span>
+            </div>
+            <a class="btn small" href="https://github.com/AndreVaz51585/Paddle-Courts-Manager.git" target="_blank">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </article>
+
+  </section>
+
+  <!-- In Progress -->
+  <section id="in-progress" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Projects in Development</h2>
+        <p class="muted">Currently evolving ideas and builds.</p>
       </div>
 
-      <div class="project-card">
-        <img src="assets/PokerDiceAndroidVersion.png" alt="Poker Dice Web">
-        <h3>Poker Dice Web</h3>
-        <p>Web version with Spring MVC backend + React frontend. Dockerized for deployment.</p>
-        <p><strong>Tools:</strong> Kotlin/Java, Spring MVC, React, Docker</p>
+      <div class="empty-state">
+        <div class="empty-icon"><i class="fas fa-hammer"></i></div>
+        <h3>More coming soon</h3>
+        <p class="muted">I’m actively working on new projects — updates will appear here.</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>© 2025 André Vaz | Built with ❤️</p>
-    <div class="socials">
-      <a href="https://github.com/AndreVaz51585" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="mailto:andre.vaz2005@gmail.com"><i class="fas fa-envelope"></i></a>
-    </div>
-  </footer>
+  <footer class="footer">
+  <div class="container footer-inner">
+    <p>© 2025 André Vaz</p>
+  </div>
+</footer>
 </body>
 </html>
