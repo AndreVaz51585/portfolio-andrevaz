@@ -234,20 +234,28 @@ img{ max-width:100%; display:block; }
   transform: translateY(-6px);
   background: rgba(255,255,255,.10);
 }
+
 .thumb{
-  aspect-ratio: 16 / 9;
+  width: 100%;
+  aspect-ratio: 1 / 1;          
   background: rgba(0,0,0,.25);
   border-bottom: 1px solid var(--line);
-  display: grid;
-  place-items: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;             
 }
 
 .thumb img{
-  width: 92%;
-  height: 92%;
-  object-fit: contain;
-  border-radius: 12px;
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+  object-fit: contain;         
 }
+
 
 .project-body{
   padding: 16px;
