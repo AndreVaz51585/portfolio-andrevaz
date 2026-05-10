@@ -32,8 +32,8 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#featured">Featured</a>
+        <a href="#major-projects">Major Projects</a>
         <a href="#projects">Projects</a>
-        <a href="#in-progress">In Progress</a>
       </div>
       <div class="nav-cta">
         <a class="btn small primary" href="https://www.linkedin.com/in/andr%C3%A9-filipe-de-sousa-vaz-491632333/" target="_blank">
@@ -79,30 +79,17 @@
       </div>
 
       <div class="hero-visual">
-        <div class="profile-ring">
-          <div class="profile-inner">
-            <img class="profile-photo" src="assets/"
-                 alt="André Vaz"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-            <span class="profile-initials" style="display:none">AV</span>
+        <div class="profile-card">
+          <img class="profile-photo" src="assets/face.JPG" alt="André Vaz" />
+          <div class="profile-card-label">
+            <span>André Vaz</span>
+            <small>Computer Engineering</small>
           </div>
-          <svg class="ring-svg" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r="90" fill="none" stroke="url(#ringGrad)" stroke-width="2" stroke-dasharray="8 6"/>
-            <defs>
-              <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#7c3aed"/>
-                <stop offset="100%" stop-color="#06b6d4"/>
-              </linearGradient>
-            </defs>
-          </svg>
-          <div class="orbit-dot dot1"><i class="fab fa-java"></i></div>
-          <div class="orbit-dot dot2"><i class="fab fa-react"></i></div>
-          <div class="orbit-dot dot3"><i class="fab fa-docker"></i></div>
         </div>
 
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-num">7+</span>
+            <span class="stat-num">10+</span>
             <span class="stat-label">Projects</span>
           </div>
           <div class="stat-divider"></div>
@@ -142,7 +129,7 @@
             from backend REST APIs to native Android apps.
           </p>
           <div class="about-links">
-            <a class="btn primary" href="assets/CVatual.pdf" target="_blank">
+            <a class="btn primary" href="assets/André_Vaz_CV.pdf" target="_blank">
               <i class="fas fa-file-pdf"></i> Download CV
             </a>
             <a class="btn ghost" href="mailto:andre.vaz2005@gmail.com">
@@ -185,25 +172,25 @@
         <div class="skill-card">
           <h3>Languages</h3>
           <div class="skill-tags">
-            <span>Kotlin</span><span>JavaScript</span><span>Python</span><span>C</span><span>Assembly</span>
+            <span>Kotlin</span><span>JavaScript</span><span>TypeScript</span><span>Python</span><span>C</span><span>Assembly</span>
           </div>
         </div>
         <div class="skill-card">
           <h3>Web & Frameworks</h3>
           <div class="skill-tags">
-            <span>Spring Boot</span><span>React</span><span>Node.js</span><span>FastApi</span><span>RAG</span><span>Express</span><span>http4k</span><span>Jakarta</span><span>JPA</span>
+            <span>Spring Boot</span><span>React</span><span>Node.js</span><span>FastApi</span><span>LangChain</span><span>RAG</span><span>Express</span><span>http4k</span><span>Jakarta</span><span>JPA</span><span>docker-java</span>
           </div>
         </div>
         <div class="skill-card">
           <h3>Databases & DevOps</h3>
           <div class="skill-tags">
-            <span>PostgreSQL</span><span>MongoDB</span><span>JDBC</span><span>Docker</span><span>ChromaDB</span><span>Nginx</span>
+            <span>PostgreSQL</span><span>MongoDB</span><span>JDBC</span><span>Docker</span><span>ChromaDB</span><span>Nginx</span><span>OpenEvolve</span>
           </div>
         </div>
         <div class="skill-card">
           <h3>Mobile & Tools</h3>
           <div class="skill-tags">
-            <span>Jetpack Compose</span><span>Android Studio</span><span>Render</span><span>ngrok</span>
+            <span>Jetpack Compose</span><span>Android Studio</span><span>OAuth 2.0</span><span>OpenID</span><span>OpenAI</span><span>Gemini</span><span>Local Models</span><span>Render</span><span>ngrok</span>
           </div>
         </div>
       </div>
@@ -290,181 +277,280 @@
     </div>
   </section>
 
-  <!-- Projects -->
-  <section id="projects" class="section section-dark">
+  <!-- Major Projects -->
+  <section id="major-projects" class="section section-dark">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">Projects</span>
-        <h2>Other <span class="gradient-text">Completed Work</span></h2>
-        <p class="section-sub">Selected work with a focus on clean architecture and practical delivery.</p>
+        <span class="section-label">Major Projects</span>
+        <h2>Systems with <span class="gradient-text">real architecture</span></h2>
+        <p class="section-sub">Larger builds that combine backend, frontend, AI, security, infrastructure and product thinking.</p>
       </div>
 
-      <div class="projects-grid">
+      <div class="major-projects-stack">
+        <div class="evolab-suite">
+          <div class="chatbot-card project-spotlight">
+            <div class="chatbot-img-wrap spotlight-img-wrap">
+              <img src="assets/EvoLab.jpeg" alt="EvoLabAsAService interface" />
+            </div>
 
+            <div class="chatbot-content">
+              <div class="featured-badge evolab-badge"><i class="fas fa-network-wired"></i> Final Project Platform</div>
+              <h3>EvoLabAsAService</h3>
+              <p>
+                One of my largest projects: a platform for managing experimental projects with
+                a <strong>Spring Boot + Kotlin</strong> backend and a <strong>React + TypeScript</strong> frontend.
+                It connects authentication, job orchestration, Docker execution, AI validation, and chatbot support.
+              </p>
+              <p>
+                The backend includes a pool of workers that consume experimental projects from a
+                <strong>Channel</strong>, launch OpenEvolve containers using the <strong>docker-java</strong>
+                library, and persist job state in the database.
+              </p>
 
-        <!-- Veridict AI -->
-        <article class="project-card">
-          <div class="project-img">
-            <img src="assets/VeridictAi.jpeg" alt="Veridict AI">
-            <div class="project-img-overlay">
-              <a class="btn small primary" href="https://github.com/AndreVaz51585/Veridict-AI.git" target="_blank">
-                <i class="fab fa-github"></i> View Repo
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3>Veridict AI</h3>
-            <p>Cybersecurity-focused prototype designed to detect phishing, malicious links, and social engineering attempts.</p>
-            <div class="project-tags">
-              <span>Python</span><span>FastApi</span><span>React</span><span>RAG</span><span>Google Safe browsing API</span><span>ChromaDB</span>
-            </div>
-          </div>
-        </article>
-
-
-        <!-- Snake -->
-        <article class="project-card">
-          <div class="project-img">
-            <img src="assets/snake.png" alt="Snake Game">
-            <div class="project-img-overlay">
-              <a class="btn small primary" href="https://github.com/AndreVaz51585/SnakeGame.git" target="_blank">
-                <i class="fab fa-github"></i> View Repo
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3>Snake Game</h3>
-            <p>Recreation of the classic Snake game in Kotlin using the Canvas API for rendering.</p>
-            <div class="project-tags">
-              <span>Kotlin</span><span>Canvas API</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Roulette -->
-        <article class="project-card">
-          <div class="project-img">
-            <img src="assets/lic.png" alt="Roulette Game">
-            <div class="project-img-overlay">
-              <a class="btn small primary" href="https://github.com/rodrigodorey/licSoftware.git" target="_blank">
-                <i class="fab fa-github"></i> View Repo
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3>Roulette Game</h3>
-            <p>Hardware/Software split: Kotlin for game logic + VHDL on FPGA for keypad and display I/O.</p>
-            <div class="project-tags">
-              <span>Kotlin</span><span>VHDL</span><span>FPGA</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Foccacia -->
-        <article class="project-card">
-          <div class="project-img">
-            <img class="no-zoom-img" src="assets/ipw.png" alt="Foccacia Web API">
-            <div class="project-img-overlay">
-              <a class="btn small primary" href="https://github.com/AndreVaz51585/Foccacia-webAPI.git" target="_blank">
-                <i class="fab fa-github"></i> View Repo
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3>Foccacia Web API</h3>
-            <p>Backend service integrating a football API with frontend search and data visualization.</p>
-            <div class="project-tags">
-              <span>Node.js</span><span>JavaScript</span><span>ElasticSearch</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Reversi -->
-        <article class="project-card">
-          <div class="project-img">
-            <img src="assets/Reversi.png" alt="Reversi Game">
-            <div class="project-img-overlay">
-              <a class="btn small primary" href="https://github.com/AndreVaz51585/ReversiGame-tds.git" target="_blank">
-                <i class="fab fa-github"></i> View Repo
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3>Reversi Game</h3>
-            <p>Immutable-state Reversi in Kotlin with Jetpack Compose UI and MongoDB persistence.</p>
-            <div class="project-tags">
-              <span>Kotlin</span><span>Jetpack Compose</span><span>MongoDB</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Paddle Courts -->
-        <article class="project-card">
-          <div class="project-img">
-            <img src="assets/paddle.jpg" alt="Paddle Courts Manager">
-            <div class="project-img-overlay">
-              <a class="btn small primary" href="https://github.com/AndreVaz51585/Paddle-Courts-Manager.git" target="_blank">
-                <i class="fab fa-github"></i> View Repo
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3>Paddle Courts Manager</h3>
-            <p>Layered architecture with full CRUD, booking system and responsive JS frontend.</p>
-            <div class="project-tags">
-              <span>Kotlin</span><span>PostgreSQL</span><span>http4k</span><span>Express</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Git Tasks Manager -->
-          <article class = "project-card">
-            <div class="project-img">
-                <img class="no-zoom-img" src="assets/gitTasks.png" alt="Git Tasks Manager">
-                <div class="project-img-overlay">
-                    <a class="btn small primary" href="https://github.com/DiogoTeixeira3/SegInf" target="_blank">
-                        <i class="fab fa-github"></i> View Repo
-                    </a>
-                </div>
+              <div class="featured-tech">
+                <span class="tech-badge kotlin"><i class="fas fa-k"></i> Kotlin</span>
+                <span class="tech-badge spring"><i class="fas fa-leaf"></i> Spring Boot</span>
+                <span class="tech-badge react"><i class="fab fa-react"></i> React</span>
+                <span class="tech-badge typescript"><i class="fas fa-code"></i> TypeScript</span>
+                <span class="tech-badge docker"><i class="fab fa-docker"></i> docker-java</span>
+                <span class="tech-badge oauth"><i class="fas fa-lock"></i> OAuth 2.0</span>
+                <span class="tech-badge postgres"><i class="fas fa-database"></i> PostgreSQL</span>
               </div>
-            <div class="project-content">
-                <h3>Git Tasks Manager</h3>
-                <p>Web app built in javaScript for managing project tasks with Git integration using openId and OAuth2.0.</p>
-                <div class="project-tags">
-                    <span>JavaScript</span><span>HTML</span><span>CSS</span> <span>GitHub</span>
-                </div>
+
+              <ul class="featured-highlights chatbot-highlights">
+                <li class="fh-item"><i class="fas fa-check-circle"></i> Worker pool consuming projects from a Kotlin Channel</li>
+                <li class="fh-item"><i class="fas fa-check-circle"></i> Launches OpenEvolve containers with docker-java</li>
+                <li class="fh-item"><i class="fas fa-check-circle"></i> OAuth 2.0 authentication and persisted job tracking</li>
+                <li class="fh-item"><i class="fas fa-check-circle"></i> Chatbot integration with OpenAI, Gemini and local model credential validation</li>
+              </ul>
+
+              <a class="btn primary" href="https://github.com/Projeto-Final-Leic-2026-Andre-Miguel/EvoLabAsAService.git" target="_blank">
+                <i class="fab fa-github"></i> View Repo
+              </a>
             </div>
-           </article>
+          </div>
+
+          <div class="evolab-addon-wrap">
+            <div class="chatbot-card compact-spotlight">
+              <div class="chatbot-img-wrap">
+                <img src="assets/ChatBot.jpeg" alt="EvoLab Chatbot interface" />
+              </div>
+
+              <div class="chatbot-content">
+                <div class="featured-badge chatbot-badge"><i class="fas fa-robot"></i> AI Assistant</div>
+                <h3>EvoLab Chatbot</h3>
+                <p>
+                  RAG-powered virtual assistant for EvoLab, built with <strong>Python</strong>,
+                  <strong>FastAPI</strong>, <strong>LangChain</strong>, and <strong>ChromaDB</strong>.
+                </p>
+                <p>
+                  The frontend is a lightweight JavaScript IIFE that builds the chatbot UI and sends requests
+                  to the FastAPI service, making integration into EvoLab simple.
+                </p>
+
+                <div class="featured-tech">
+                  <span class="tech-badge python"><i class="fab fa-python"></i> Python</span>
+                  <span class="tech-badge fastapi"><i class="fas fa-bolt"></i> FastAPI</span>
+                  <span class="tech-badge langchain"><i class="fas fa-link"></i> LangChain</span>
+                  <span class="tech-badge chroma"><i class="fas fa-database"></i> ChromaDB</span>
+                </div>
+
+                <ul class="featured-highlights chatbot-highlights">
+                  <li class="fh-item"><i class="fas fa-check-circle"></i> RAG pipeline with document retrieval</li>
+                  <li class="fh-item"><i class="fas fa-check-circle"></i> ChromaDB document storage</li>
+                  <li class="fh-item"><i class="fas fa-check-circle"></i> JavaScript IIFE integration</li>
+                  <li class="fh-item"><i class="fas fa-check-circle"></i> FastAPI service endpoint</li>
+                </ul>
+
+                <a class="btn primary" href="https://github.com/AndreVaz51585/Chatbot.git" target="_blank">
+                  <i class="fab fa-github"></i> View Repo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <div class="chatbot-card compact-spotlight security-spotlight">
+            <div class="chatbot-img-wrap">
+              <img src="assets/VeridictAi.jpeg" alt="Veridict AI interface" />
+            </div>
+
+            <div class="chatbot-content">
+              <div class="featured-badge security-badge"><i class="fas fa-shield-halved"></i> Security AI</div>
+              <h3>Veridict AI</h3>
+              <p>
+                Cybersecurity-focused prototype for detecting malicious links and suspicious phishing attempts,
+                combining analysis workflows with AI-assisted threat evaluation.
+              </p>
+              <div class="featured-tech">
+                <span class="tech-badge python"><i class="fab fa-python"></i> Python</span>
+                <span class="tech-badge fastapi"><i class="fas fa-bolt"></i> FastAPI</span>
+                <span class="tech-badge react"><i class="fab fa-react"></i> React</span>
+                <span class="tech-badge langchain"><i class="fas fa-link"></i> RAG</span>
+                <span class="tech-badge chroma"><i class="fas fa-database"></i> ChromaDB</span>
+              </div>
+              <ul class="featured-highlights chatbot-highlights">
+                <li class="fh-item"><i class="fas fa-check-circle"></i> Malicious URL detection</li>
+                <li class="fh-item"><i class="fas fa-check-circle"></i> Phishing suspicion analysis</li>
+                <li class="fh-item"><i class="fas fa-check-circle"></i> Google Safe Browsing API integration</li>
+                <li class="fh-item"><i class="fas fa-check-circle"></i> AI-assisted security prototype</li>
+              </ul>
+              <a class="btn primary" href="https://github.com/AndreVaz51585/Veridict-AI.git" target="_blank">
+                <i class="fab fa-github"></i> View Repo
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   </section>
 
-  <!-- In Progress -->
-  <section id="in-progress" class="section">
+  <!-- Projects -->
+  <section id="projects" class="section">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">In Progress</span>
-        <h2>What I'm <span class="gradient-text">Building Now</span></h2>
-        <p class="section-sub">Currently evolving ideas and builds.</p>
+        <span class="section-label">Project Archive</span>
+        <h2>Projects grouped by <span class="gradient-text">type</span></h2>
+        <p class="section-sub">The rest of my completed work, organized so the portfolio is easier to scan.</p>
       </div>
 
-      <div class="in-progress-wrap">
-        <div class="in-progress-card">
-          <div class="ip-image-wrap">
-            <img class="ip-image" src="assets/EvoLab.jpg" alt="EvoLabasAService preview" />
-          </div>
+      <div class="project-category">
+        <div class="category-header">
           <div>
-            <h3>EvoLabasAService</h3>
-            <p class="muted">
-              Web platform integrated with OpenEvolve that helps users run and manage experimentation projects.
-              Built with Kotlin + Spring Boot on the backend and React + TypeScript on the frontend,
-              with OAuth 2.0/OpenID authentication, Dockerized services, and PostgreSQL relational data storage.
-            </p>
-            <div class="project-tags">
-              <span>Kotlin</span><span>Spring Boot</span><span>React</span><span>TypeScript</span>
-              <span>OAuth 2.0</span><span>OpenID</span><span>Docker</span><span>PostgreSQL</span>
-            </div>
+            <h3>API & Web Integrations</h3>
+            <p>Applications that connect APIs, persistence, and practical frontend workflows.</p>
           </div>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-img">
+              <img src="assets/paddle.jpg" alt="Paddle Courts Manager">
+              <div class="project-img-overlay">
+                <a class="btn small primary" href="https://github.com/AndreVaz51585/Paddle-Courts-Manager.git" target="_blank">
+                  <i class="fab fa-github"></i> View Repo
+                </a>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Paddle Courts Manager</h3>
+              <p>Layered architecture with full CRUD, booking system and responsive JS frontend.</p>
+              <div class="project-tags">
+                <span>Kotlin</span><span>PostgreSQL</span><span>http4k</span><span>Express</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-img">
+              <img class="no-zoom-img" src="assets/ipw.png" alt="Foccacia Web API">
+              <div class="project-img-overlay">
+                <a class="btn small primary" href="https://github.com/AndreVaz51585/Foccacia-webAPI.git" target="_blank">
+                  <i class="fab fa-github"></i> View Repo
+                </a>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Chelas Foccacia Web API</h3>
+              <p>Backend service integrating a football API with frontend search and data visualization.</p>
+              <div class="project-tags">
+                <span>Node.js</span><span>JavaScript</span><span>ElasticSearch</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="project-category">
+        <div class="category-header">
+          <div>
+            <h3>Games & Logic</h3>
+            <p>Game projects focused on state, UI rendering, persistence, and hardware/software interaction.</p>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-img">
+              <img src="assets/Reversi.png" alt="Reversi Game">
+              <div class="project-img-overlay">
+                <a class="btn small primary" href="https://github.com/AndreVaz51585/ReversiGame-tds.git" target="_blank">
+                  <i class="fab fa-github"></i> View Repo
+                </a>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Reversi Game</h3>
+              <p>Immutable-state Reversi in Kotlin with Jetpack Compose UI and MongoDB persistence.</p>
+              <div class="project-tags">
+                <span>Kotlin</span><span>Jetpack Compose</span><span>MongoDB</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-img">
+              <img src="assets/snake.png" alt="Snake Game">
+              <div class="project-img-overlay">
+                <a class="btn small primary" href="https://github.com/AndreVaz51585/SnakeGame.git" target="_blank">
+                  <i class="fab fa-github"></i> View Repo
+                </a>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Snake Game</h3>
+              <p>Recreation of the classic Snake game in Kotlin using the Canvas API for rendering.</p>
+              <div class="project-tags">
+                <span>Kotlin</span><span>Canvas API</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-img">
+              <img src="assets/lic.png" alt="Roulette Game">
+              <div class="project-img-overlay">
+                <a class="btn small primary" href="https://github.com/rodrigodorey/licSoftware.git" target="_blank">
+                  <i class="fab fa-github"></i> View Repo
+                </a>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Roulette Game</h3>
+              <p>Hardware/software split: Kotlin for game logic plus VHDL on FPGA for keypad and display I/O.</p>
+              <div class="project-tags">
+                <span>Kotlin</span><span>VHDL</span><span>FPGA</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="project-category">
+        <div class="category-header">
+          <div>
+            <h3>Security & Identity</h3>
+            <p>Work around identity flows, OAuth, OpenID and GitHub-backed task management.</p>
+          </div>
+        </div>
+
+        <div class="projects-grid projects-grid-small">
+          <article class="project-card">
+            <div class="project-img">
+              <img class="no-zoom-img" src="assets/gitTasks.png" alt="Git Tasks Manager">
+              <div class="project-img-overlay">
+                <a class="btn small primary" href="https://github.com/DiogoTeixeira3/SegInf" target="_blank">
+                  <i class="fab fa-github"></i> View Repo
+                </a>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Git Tasks Manager</h3>
+              <p>JavaScript web app for managing project tasks with Git integration using OpenID and OAuth 2.0.</p>
+              <div class="project-tags">
+                <span>JavaScript</span><span>HTML</span><span>CSS</span><span>GitHub</span><span>OpenID</span><span>OAuth 2.0</span>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </div>
