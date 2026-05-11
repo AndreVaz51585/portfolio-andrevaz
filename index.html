@@ -15,11 +15,20 @@
 
 <body>
 
-  <!-- Animated background particles -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- Animated background system -->
   <div class="bg-orbs">
+    <div class="bg-grid"></div>
+    <div class="bg-beam beam1"></div>
+    <div class="bg-beam beam2"></div>
     <div class="orb orb1"></div>
     <div class="orb orb2"></div>
     <div class="orb orb3"></div>
+    <div class="code-rain" aria-hidden="true">
+      <span>React</span><span>Kotlin</span><span>Spring</span><span>Docker</span><span>AI</span>
+    </div>
   </div>
 
   <!-- Top Nav -->
@@ -81,6 +90,10 @@
       <div class="hero-visual">
         <div class="profile-card">
           <img class="profile-photo" src="assets/face.JPG" alt="André Vaz" />
+          <div class="profile-energy" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </div>
           <div class="profile-card-label">
             <span>André Vaz</span>
             <small>Computer Engineering</small>
@@ -89,17 +102,17 @@
 
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-num">10+</span>
+            <span class="stat-num" data-count="10" data-suffix="+">0+</span>
             <span class="stat-label">Projects</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat-num">5+</span>
+            <span class="stat-num" data-count="5" data-suffix="+">0+</span>
             <span class="stat-label">Languages</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat-num">3rd</span>
+            <span class="stat-num" data-count="3" data-suffix="rd">0rd</span>
             <span class="stat-label">Year</span>
           </div>
         </div>
@@ -567,5 +580,6 @@
     </div>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
