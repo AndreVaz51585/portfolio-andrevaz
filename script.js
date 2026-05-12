@@ -4,6 +4,8 @@ const root = document.documentElement;
 const body = document.body;
 body.classList.add("js-enabled");
 
+const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
 const updateScrollProgress = () => {
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
@@ -43,15 +45,28 @@ if (!prefersReducedMotion) {
     pointer.x += (pointer.targetX - pointer.x) * 0.11;
     pointer.y += (pointer.targetY - pointer.y) * 0.11;
 
+    const time = performance.now() * 0.001;
     const pctX = (pointer.x / window.innerWidth) * 100;
     const pctY = (pointer.y / window.innerHeight) * 100;
-    const panX = (pctX - 50) * -0.48;
-    const panY = (pctY - 50) * -0.38;
+    const ambientAX = 22 + Math.sin(time * 0.18) * 10 + Math.cos(time * 0.11) * 5;
+    const ambientAY = 28 + Math.cos(time * 0.16) * 9;
+    const ambientBX = 78 + Math.cos(time * 0.13) * 11;
+    const ambientBY = 24 + Math.sin(time * 0.19) * 8 + Math.cos(time * 0.07) * 4;
+    const ambientCX = 54 + Math.sin(time * 0.12) * 16;
+    const ambientCY = 82 + Math.cos(time * 0.15) * 7;
+    const panX = (pctX - 50) * -0.32 + Math.sin(time * 0.22) * 14;
+    const panY = (pctY - 50) * -0.26 + Math.cos(time * 0.18) * 12;
 
     root.style.setProperty("--mouse-x", `${pointer.x}px`);
     root.style.setProperty("--mouse-y", `${pointer.y}px`);
     root.style.setProperty("--mouse-x-pct", `${pctX}%`);
     root.style.setProperty("--mouse-y-pct", `${pctY}%`);
+    root.style.setProperty("--ambient-a-x", `${ambientAX}%`);
+    root.style.setProperty("--ambient-a-y", `${ambientAY}%`);
+    root.style.setProperty("--ambient-b-x", `${ambientBX}%`);
+    root.style.setProperty("--ambient-b-y", `${ambientBY}%`);
+    root.style.setProperty("--ambient-c-x", `${ambientCX}%`);
+    root.style.setProperty("--ambient-c-y", `${ambientCY}%`);
     root.style.setProperty("--bg-pan-x", `${panX}px`);
     root.style.setProperty("--bg-pan-y", `${panY}px`);
     root.style.setProperty("--bg-pan-x-inverse", `${-panX}px`);
@@ -90,6 +105,13 @@ const revealItems = [...document.querySelectorAll(revealSelectors)];
 revealItems.forEach((item, index) => {
   item.classList.add("reveal");
   item.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 70}ms`);
+});
+
+const majorRevealItems = [...document.querySelectorAll("#featured .featured-card, #major-projects .chatbot-card")];
+majorRevealItems.forEach((item, index) => {
+  item.classList.add("major-reveal");
+  item.style.setProperty("--major-index", index);
+  item.style.setProperty("--reveal-delay", `${Math.min(index, 5) * 110}ms`);
 });
 
 if ("IntersectionObserver" in window && !prefersReducedMotion) {
@@ -151,32 +173,125 @@ if ("IntersectionObserver" in window && !prefersReducedMotion) {
 
 const hoverCards = [...document.querySelectorAll(".about-card, .skill-card, .featured-card, .chatbot-card, .project-card")];
 hoverCards.forEach((card) => {
-  card.addEventListener("pointermove", (event) => {
+  const setCardLightPosition = (event) => {
     const rect = card.getBoundingClientRect();
-    const x = ((event.clientX - rect.left) / rect.width) * 100;
-    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    const x = clamp(((event.clientX - rect.left) / rect.width) * 100, 0, 100);
+    const y = clamp(((event.clientY - rect.top) / rect.height) * 100, 0, 100);
 
     card.style.setProperty("--card-x", `${x}%`);
     card.style.setProperty("--card-y", `${y}%`);
+  };
+
+  card.addEventListener("pointerenter", setCardLightPosition, { passive: true });
+
+  card.addEventListener("pointermove", (event) => {
+    setCardLightPosition(event);
 
     if (!card.classList.contains("project-card") || prefersReducedMotion) return;
+    const rect = card.getBoundingClientRect();
     const tiltX = ((event.clientX - rect.left) / rect.width - 0.5) * 8;
     const tiltY = ((event.clientY - rect.top) / rect.height - 0.5) * -8;
     card.style.setProperty("--tilt-x", `${tiltX}deg`);
     card.style.setProperty("--tilt-y", `${tiltY}deg`);
   }, { passive: true });
 
-  card.addEventListener("pointerleave", () => {
-    card.style.removeProperty("--card-x");
-    card.style.removeProperty("--card-y");
+  card.addEventListener("pointerleave", (event) => {
+    setCardLightPosition(event);
     card.style.removeProperty("--tilt-x");
     card.style.removeProperty("--tilt-y");
-  });
+  }, { passive: true });
 });
+
+const heroName = document.querySelector(".hero-name");
+if (heroName) {
+  let heroNameActive = false;
+
+  const setHeroNameMotion = (event) => {
+    const rect = heroName.getBoundingClientRect();
+    const localX = clamp((event.clientX - rect.left) / rect.width, 0, 1);
+    const localY = clamp((event.clientY - rect.top) / rect.height, 0, 1);
+    const x = localX * 100;
+    const y = localY * 100;
+
+    heroName.style.setProperty("--hero-name-x", `${x}%`);
+    heroName.style.setProperty("--hero-name-y", `${y}%`);
+    heroName.style.setProperty("--name-lift", `${(0.5 - localY) * 8}px`);
+    heroName.style.setProperty("--name-tilt-x", `${(0.5 - localY) * 10}deg`);
+    heroName.style.setProperty("--name-tilt-y", `${(localX - 0.5) * 12}deg`);
+  };
+
+  const resetHeroNameMotion = () => {
+    heroNameActive = false;
+    heroName.classList.remove("is-active");
+    heroName.style.setProperty("--name-lift", "0px");
+    heroName.style.setProperty("--name-tilt-x", "0deg");
+    heroName.style.setProperty("--name-tilt-y", "0deg");
+  };
+
+  window.addEventListener("pointermove", (event) => {
+    const rect = heroName.getBoundingClientRect();
+    const isInside =
+      event.clientX >= rect.left &&
+      event.clientX <= rect.right &&
+      event.clientY >= rect.top &&
+      event.clientY <= rect.bottom;
+
+    if (!isInside) {
+      if (heroNameActive) resetHeroNameMotion();
+      return;
+    }
+
+    heroNameActive = true;
+    heroName.classList.add("is-active", "has-interacted");
+    setHeroNameMotion(event);
+  }, { passive: true });
+
+  const activateHeroName = (event) => {
+    heroNameActive = true;
+    heroName.classList.add("is-active", "has-interacted");
+    setHeroNameMotion(event);
+  };
+
+  heroName.addEventListener("pointerenter", activateHeroName, { passive: true });
+  heroName.addEventListener("pointerover", activateHeroName, { passive: true });
+  heroName.addEventListener("pointerdown", activateHeroName, { passive: true });
+
+  heroName.addEventListener("pointermove", setHeroNameMotion, { passive: true });
+
+  heroName.addEventListener("pointerleave", resetHeroNameMotion, { passive: true });
+
+  const showHeroName = () => {
+    heroName.classList.add("is-present");
+  };
+
+  const hideHeroName = () => {
+    heroName.classList.remove("is-present", "is-active", "has-interacted");
+    heroNameActive = false;
+    heroName.style.setProperty("--name-lift", "0px");
+    heroName.style.setProperty("--name-tilt-x", "0deg");
+    heroName.style.setProperty("--name-tilt-y", "0deg");
+  };
+
+  const heroSection = document.querySelector(".hero");
+  if ("IntersectionObserver" in window && heroSection) {
+    const heroNameObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          showHeroName();
+        } else {
+          hideHeroName();
+        }
+      });
+    }, { threshold: 0.38 });
+
+    heroNameObserver.observe(heroSection);
+  } else {
+    showHeroName();
+  }
+}
 
 const profileCard = document.querySelector(".profile-card");
 if (profileCard && !prefersReducedMotion) {
-  const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
   const profileMotion = {
     bounds: null,
     targetTiltX: 0,
