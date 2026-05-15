@@ -267,13 +267,6 @@ strong { color: var(--text); }
   color: white;
   transform: translateY(-1px);
 }
-.brand-dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  box-shadow: 0 0 0 4px rgba(124,58,237,.2), 0 0 12px rgba(124,58,237,.5);
-  flex-shrink: 0;
-}
 .nav-links {
   display: flex;
   gap: 6px;
@@ -530,30 +523,10 @@ strong { color: var(--text); }
   transform: scale(.88);
   transition: opacity .25s ease, transform .25s ease;
 }
-.hero-name::after {
-  content: "";
-  position: absolute;
-  left: var(--hero-name-x);
-  top: var(--hero-name-y);
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid rgba(103,232,249,.5);
-  box-shadow: 0 0 22px rgba(6,182,212,.28);
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(.7);
-  pointer-events: none;
-  transition: opacity .2s ease, transform .2s ease;
-}
 .hero-name:hover::before,
 .hero-name.is-active::before {
   opacity: .92;
   transform: scale(1);
-}
-.hero-name:hover::after,
-.hero-name.is-active::after {
-  opacity: .85;
-  transform: translate(-50%, -50%) scale(1);
 }
 .name-line {
   display: inline-flex;
@@ -1549,27 +1522,6 @@ strong { color: var(--text); }
   position: relative;
   isolation: isolate;
 }
-.about-card::before,
-.skill-card::before,
-.featured-card::before,
-.chatbot-card::before,
-.project-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  background: radial-gradient(circle at var(--card-x, 50%) var(--card-y, 50%), rgba(255,255,255,.14), transparent 34%);
-  opacity: 0;
-  transition: opacity .25s ease;
-}
-.about-card:hover::before,
-.skill-card:hover::before,
-.featured-card:hover::before,
-.chatbot-card:hover::before,
-.project-card:hover::before {
-  opacity: 1;
-}
 
 .skill-tags span,
 .project-tags span,
@@ -1587,10 +1539,10 @@ strong { color: var(--text); }
 }
 
 .project-card {
-  transform: perspective(900px) rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg)) translateY(0);
+  transform: translateY(0);
 }
 .project-card:hover {
-  transform: perspective(900px) rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg)) translateY(-7px);
+  transform: translateY(-7px);
 }
 .project-card::after,
 .featured-card::after,
