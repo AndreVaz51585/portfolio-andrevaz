@@ -5,16 +5,19 @@ const body = document.body;
 body.classList.add("js-enabled");
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+const supportsFineHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+const sections = [...document.querySelectorAll("header[id], section[id]")];
+const navLinks = [...document.querySelectorAll(".nav-links a")];
+
+let scrollTicking = false;
 
 const updateScrollProgress = () => {
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
-  root.style.setProperty("--scroll-progress", `${progress}%`);
+  const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+  root.style.setProperty("--scroll-progress", progress.toFixed(4));
 };
 
 const updateActiveNav = () => {
-  const sections = [...document.querySelectorAll("header[id], section[id]")];
-  const navLinks = [...document.querySelectorAll(".nav-links a")];
   const current = sections
     .filter((section) => section.getBoundingClientRect().top <= 140)
     .pop();
@@ -25,69 +28,24 @@ const updateActiveNav = () => {
 };
 
 const handleScroll = () => {
+  if (scrollTicking) return;
+
+  scrollTicking = true;
+  requestAnimationFrame(() => {
+    scrollTicking = false;
+    updateScrollProgress();
+    updateActiveNav();
+  });
+};
+
+const handleResize = () => {
   updateScrollProgress();
   updateActiveNav();
 };
 
 window.addEventListener("scroll", handleScroll, { passive: true });
-window.addEventListener("resize", handleScroll);
-handleScroll();
-
-if (!prefersReducedMotion) {
-  const pointer = {
-    targetX: window.innerWidth / 2,
-    targetY: window.innerHeight / 2,
-    x: window.innerWidth / 2,
-    y: window.innerHeight / 2
-  };
-
-  const paintPointerField = () => {
-    pointer.x += (pointer.targetX - pointer.x) * 0.11;
-    pointer.y += (pointer.targetY - pointer.y) * 0.11;
-
-    const time = performance.now() * 0.001;
-    const pctX = (pointer.x / window.innerWidth) * 100;
-    const pctY = (pointer.y / window.innerHeight) * 100;
-    const ambientAX = 22 + Math.sin(time * 0.18) * 10 + Math.cos(time * 0.11) * 5;
-    const ambientAY = 28 + Math.cos(time * 0.16) * 9;
-    const ambientBX = 78 + Math.cos(time * 0.13) * 11;
-    const ambientBY = 24 + Math.sin(time * 0.19) * 8 + Math.cos(time * 0.07) * 4;
-    const ambientCX = 54 + Math.sin(time * 0.12) * 16;
-    const ambientCY = 82 + Math.cos(time * 0.15) * 7;
-    const panX = (pctX - 50) * -0.32 + Math.sin(time * 0.22) * 14;
-    const panY = (pctY - 50) * -0.26 + Math.cos(time * 0.18) * 12;
-
-    root.style.setProperty("--mouse-x", `${pointer.x}px`);
-    root.style.setProperty("--mouse-y", `${pointer.y}px`);
-    root.style.setProperty("--mouse-x-pct", `${pctX}%`);
-    root.style.setProperty("--mouse-y-pct", `${pctY}%`);
-    root.style.setProperty("--ambient-a-x", `${ambientAX}%`);
-    root.style.setProperty("--ambient-a-y", `${ambientAY}%`);
-    root.style.setProperty("--ambient-b-x", `${ambientBX}%`);
-    root.style.setProperty("--ambient-b-y", `${ambientBY}%`);
-    root.style.setProperty("--ambient-c-x", `${ambientCX}%`);
-    root.style.setProperty("--ambient-c-y", `${ambientCY}%`);
-    root.style.setProperty("--bg-pan-x", `${panX}px`);
-    root.style.setProperty("--bg-pan-y", `${panY}px`);
-    root.style.setProperty("--bg-pan-x-inverse", `${-panX}px`);
-    root.style.setProperty("--bg-pan-y-inverse", `${-panY}px`);
-    root.style.setProperty("--aurora-angle", `${(pctX * 1.8 + pctY * 1.2) % 360}deg`);
-
-    requestAnimationFrame(paintPointerField);
-  };
-
-  window.addEventListener("pointermove", (event) => {
-    pointer.targetX = event.clientX;
-    pointer.targetY = event.clientY;
-  }, { passive: true });
-
-  window.addEventListener("resize", () => {
-    pointer.targetX = Math.min(pointer.targetX, window.innerWidth);
-    pointer.targetY = Math.min(pointer.targetY, window.innerHeight);
-  });
-
-  requestAnimationFrame(paintPointerField);
-}
+window.addEventListener("resize", handleResize);
+handleResize();
 
 const revealSelectors = [
   ".section-header",
@@ -121,8 +79,7 @@ if ("IntersectionObserver" in window && !prefersReducedMotion) {
 
       if (entry.isIntersecting) {
         element.classList.add("is-visible", "was-visible");
-      } else if (element.classList.contains("was-visible")) {
-        element.classList.remove("is-visible");
+        revealObserver.unobserve(element);
       }
     });
   }, {
@@ -172,93 +129,68 @@ if ("IntersectionObserver" in window && !prefersReducedMotion) {
 }
 
 const hoverCards = [...document.querySelectorAll(".about-card, .skill-card, .featured-card, .chatbot-card, .project-card")];
-hoverCards.forEach((card) => {
-  const setCardLightPosition = (event) => {
-    const rect = card.getBoundingClientRect();
-    const x = clamp(((event.clientX - rect.left) / rect.width) * 100, 0, 100);
-    const y = clamp(((event.clientY - rect.top) / rect.height) * 100, 0, 100);
+if (!prefersReducedMotion && supportsFineHover) hoverCards.forEach((card) => {
+  let rect = null;
+  let pointerX = 50;
+  let pointerY = 50;
+  let cardTicking = false;
 
-    card.style.setProperty("--card-x", `${x}%`);
-    card.style.setProperty("--card-y", `${y}%`);
+  const paintCard = () => {
+    cardTicking = false;
+    card.style.setProperty("--card-x", `${pointerX}%`);
+    card.style.setProperty("--card-y", `${pointerY}%`);
+
+    if (!card.classList.contains("project-card")) return;
+    card.style.setProperty("--tilt-x", `${(pointerX / 100 - 0.5) * 8}deg`);
+    card.style.setProperty("--tilt-y", `${(pointerY / 100 - 0.5) * -8}deg`);
   };
 
-  card.addEventListener("pointerenter", setCardLightPosition, { passive: true });
+  card.addEventListener("pointerenter", (event) => {
+    rect = card.getBoundingClientRect();
+    pointerX = clamp(((event.clientX - rect.left) / rect.width) * 100, 0, 100);
+    pointerY = clamp(((event.clientY - rect.top) / rect.height) * 100, 0, 100);
+    paintCard();
+  }, { passive: true });
 
   card.addEventListener("pointermove", (event) => {
-    setCardLightPosition(event);
+    if (!rect) rect = card.getBoundingClientRect();
+    pointerX = clamp(((event.clientX - rect.left) / rect.width) * 100, 0, 100);
+    pointerY = clamp(((event.clientY - rect.top) / rect.height) * 100, 0, 100);
 
-    if (!card.classList.contains("project-card") || prefersReducedMotion) return;
-    const rect = card.getBoundingClientRect();
-    const tiltX = ((event.clientX - rect.left) / rect.width - 0.5) * 8;
-    const tiltY = ((event.clientY - rect.top) / rect.height - 0.5) * -8;
-    card.style.setProperty("--tilt-x", `${tiltX}deg`);
-    card.style.setProperty("--tilt-y", `${tiltY}deg`);
+    if (cardTicking) return;
+    cardTicking = true;
+    requestAnimationFrame(paintCard);
   }, { passive: true });
 
-  card.addEventListener("pointerleave", (event) => {
-    setCardLightPosition(event);
+  card.addEventListener("pointerleave", () => {
+    rect = null;
+    card.style.removeProperty("--card-x");
+    card.style.removeProperty("--card-y");
     card.style.removeProperty("--tilt-x");
     card.style.removeProperty("--tilt-y");
-  }, { passive: true });
+  });
 });
 
 const heroName = document.querySelector(".hero-name");
 if (heroName) {
-  let heroNameActive = false;
-
   const setHeroNameMotion = (event) => {
     const rect = heroName.getBoundingClientRect();
     const localX = clamp((event.clientX - rect.left) / rect.width, 0, 1);
     const localY = clamp((event.clientY - rect.top) / rect.height, 0, 1);
-    const x = localX * 100;
-    const y = localY * 100;
 
-    heroName.style.setProperty("--hero-name-x", `${x}%`);
-    heroName.style.setProperty("--hero-name-y", `${y}%`);
+    heroName.style.setProperty("--hero-name-x", `${localX * 100}%`);
+    heroName.style.setProperty("--hero-name-y", `${localY * 100}%`);
     heroName.style.setProperty("--name-lift", `${(0.5 - localY) * 8}px`);
     heroName.style.setProperty("--name-tilt-x", `${(0.5 - localY) * 10}deg`);
     heroName.style.setProperty("--name-tilt-y", `${(localX - 0.5) * 12}deg`);
   };
 
   const resetHeroNameMotion = () => {
-    heroNameActive = false;
     heroName.classList.remove("is-active");
     heroName.style.setProperty("--name-lift", "0px");
     heroName.style.setProperty("--name-tilt-x", "0deg");
     heroName.style.setProperty("--name-tilt-y", "0deg");
   };
-
-  window.addEventListener("pointermove", (event) => {
-    const rect = heroName.getBoundingClientRect();
-    const isInside =
-      event.clientX >= rect.left &&
-      event.clientX <= rect.right &&
-      event.clientY >= rect.top &&
-      event.clientY <= rect.bottom;
-
-    if (!isInside) {
-      if (heroNameActive) resetHeroNameMotion();
-      return;
-    }
-
-    heroNameActive = true;
-    heroName.classList.add("is-active", "has-interacted");
-    setHeroNameMotion(event);
-  }, { passive: true });
-
-  const activateHeroName = (event) => {
-    heroNameActive = true;
-    heroName.classList.add("is-active", "has-interacted");
-    setHeroNameMotion(event);
-  };
-
-  heroName.addEventListener("pointerenter", activateHeroName, { passive: true });
-  heroName.addEventListener("pointerover", activateHeroName, { passive: true });
-  heroName.addEventListener("pointerdown", activateHeroName, { passive: true });
-
-  heroName.addEventListener("pointermove", setHeroNameMotion, { passive: true });
-
-  heroName.addEventListener("pointerleave", resetHeroNameMotion, { passive: true });
 
   const showHeroName = () => {
     heroName.classList.add("is-present");
@@ -266,11 +198,18 @@ if (heroName) {
 
   const hideHeroName = () => {
     heroName.classList.remove("is-present", "is-active", "has-interacted");
-    heroNameActive = false;
-    heroName.style.setProperty("--name-lift", "0px");
-    heroName.style.setProperty("--name-tilt-x", "0deg");
-    heroName.style.setProperty("--name-tilt-y", "0deg");
+    resetHeroNameMotion();
   };
+
+  if (!prefersReducedMotion && supportsFineHover) {
+    heroName.addEventListener("pointerenter", (event) => {
+      heroName.classList.add("is-active", "has-interacted");
+      setHeroNameMotion(event);
+    }, { passive: true });
+
+    heroName.addEventListener("pointermove", setHeroNameMotion, { passive: true });
+    heroName.addEventListener("pointerleave", resetHeroNameMotion, { passive: true });
+  }
 
   const heroSection = document.querySelector(".hero");
   if ("IntersectionObserver" in window && heroSection) {
@@ -291,9 +230,10 @@ if (heroName) {
 }
 
 const profileCard = document.querySelector(".profile-card");
-if (profileCard && !prefersReducedMotion) {
+if (profileCard && !prefersReducedMotion && supportsFineHover) {
   const profileMotion = {
     bounds: null,
+    raf: null,
     targetTiltX: 0,
     targetTiltY: 0,
     tiltX: 0,
@@ -306,7 +246,16 @@ if (profileCard && !prefersReducedMotion) {
     shineY: 50
   };
 
+  const needsProfileFrame = () => (
+    Math.abs(profileMotion.targetTiltX - profileMotion.tiltX) > 0.01 ||
+    Math.abs(profileMotion.targetTiltY - profileMotion.tiltY) > 0.01 ||
+    Math.abs(profileMotion.targetLift - profileMotion.lift) > 0.01 ||
+    Math.abs(profileMotion.targetShineX - profileMotion.shineX) > 0.1 ||
+    Math.abs(profileMotion.targetShineY - profileMotion.shineY) > 0.1
+  );
+
   const paintProfile = () => {
+    profileMotion.raf = null;
     profileMotion.tiltX += (profileMotion.targetTiltX - profileMotion.tiltX) * 0.16;
     profileMotion.tiltY += (profileMotion.targetTiltY - profileMotion.tiltY) * 0.16;
     profileMotion.lift += (profileMotion.targetLift - profileMotion.lift) * 0.16;
@@ -319,13 +268,22 @@ if (profileCard && !prefersReducedMotion) {
     profileCard.style.setProperty("--profile-shine-x", `${profileMotion.shineX}%`);
     profileCard.style.setProperty("--profile-shine-y", `${profileMotion.shineY}%`);
 
-    requestAnimationFrame(paintProfile);
+    if (needsProfileFrame()) {
+      profileMotion.raf = requestAnimationFrame(paintProfile);
+    }
+  };
+
+  const queueProfilePaint = () => {
+    if (!profileMotion.raf) {
+      profileMotion.raf = requestAnimationFrame(paintProfile);
+    }
   };
 
   profileCard.addEventListener("pointerenter", () => {
     profileMotion.bounds = profileCard.getBoundingClientRect();
     profileMotion.targetLift = -5;
     profileCard.classList.add("is-interacting");
+    queueProfilePaint();
   });
 
   profileCard.addEventListener("pointermove", (event) => {
@@ -338,6 +296,7 @@ if (profileCard && !prefersReducedMotion) {
     profileMotion.targetLift = -5;
     profileMotion.targetShineX = localX * 100;
     profileMotion.targetShineY = localY * 100;
+    queueProfilePaint();
   }, { passive: true });
 
   profileCard.addEventListener("pointerleave", () => {
@@ -348,7 +307,6 @@ if (profileCard && !prefersReducedMotion) {
     profileMotion.targetShineX = 50;
     profileMotion.targetShineY = 50;
     profileCard.classList.remove("is-interacting");
+    queueProfilePaint();
   });
-
-  requestAnimationFrame(paintProfile);
 }
