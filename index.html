@@ -1,591 +1,546 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>André Vaz | Portfolio</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="André Vaz is a Computer Engineer working across artificial intelligence, cybersecurity and systems architecture.">
+  <meta name="theme-color" content="#050506">
+  <meta property="og:title" content="André Vaz — AI, Security & Systems">
+  <meta property="og:description" content="Computer Engineer building intelligent, secure and resilient systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://andrevaz51585.github.io/portfolio-andrevaz/">
+  <meta property="og:image" content="https://andrevaz51585.github.io/portfolio-andrevaz/assets/og-portfolio.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="André Vaz — AI, Security & Systems">
+  <meta name="twitter:description" content="Computer Engineer building intelligent, secure and resilient systems.">
+  <meta name="twitter:image" content="https://andrevaz51585.github.io/portfolio-andrevaz/assets/og-portfolio.png">
+  <link rel="canonical" href="https://andrevaz51585.github.io/portfolio-andrevaz/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>André Vaz — AI, Security & Systems</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;500;700;800&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/3f9df9b4ad.js" crossorigin="anonymous" defer></script>
-
-  <link rel="stylesheet" href="style.css?v=20260512-name-fix" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20260916-eybrand">
 </head>
 
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
 
-  <div class="scroll-progress" aria-hidden="true"></div>
-
-  <!-- Animated background system -->
-  <div class="bg-orbs">
-    <div class="bg-grid"></div>
-    <div class="bg-beam beam1"></div>
-    <div class="bg-beam beam2"></div>
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
-    <div class="orb orb3"></div>
-    <div class="code-rain" aria-hidden="true">
-      <span>React</span><span>Kotlin</span><span>Spring</span><span>Docker</span><span>AI</span>
-    </div>
+  <div class="intro-screen" aria-hidden="true">
+    <div class="intro-mark"><span>A</span><i></i><span>V</span></div>
+    <p>Preparing the system</p>
+    <div class="intro-line"><i></i></div>
   </div>
 
-  <!-- Top Nav -->
-  <nav class="nav">
-    <div class="nav-inner container">
-      <a class="brand" href="#top">
-        André Vaz
-      </a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#featured">Featured</a>
-        <a href="#major-projects">Major Projects</a>
-        <a href="#projects">Projects</a>
-      </div>
-      <div class="nav-cta">
-        <a class="btn small primary" href="https://www.linkedin.com/in/andr%C3%A9-filipe-de-sousa-vaz-491632333/" target="_blank">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
+  <canvas id="signal-field" aria-hidden="true"></canvas>
+  <div class="cursor-core" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a class="nav-brand" href="#top" aria-label="André Vaz, home">AV<span>.</span></a>
+    <div class="nav-center" id="primary-menu">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#certifications">Credentials</a>
+      <a href="#about">About</a>
+      <div class="nav-mobile-profiles">
+        <a href="https://github.com/AndreVaz51585" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/andr%C3%A9-filipe-de-sousa-vaz" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <a href="assets/André_Vaz_CV.pdf" target="_blank">Résumé ↗</a>
       </div>
     </div>
+    <div class="nav-actions">
+      <a href="https://github.com/AndreVaz51585" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+      <a href="https://www.linkedin.com/in/andr%C3%A9-filipe-de-sousa-vaz" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+      <a href="assets/André_Vaz_CV.pdf" target="_blank">Résumé <span>↗</span></a>
+      <a class="nav-cta magnetic" href="#contact" aria-label="Contact André"><i aria-hidden="true">↗</i></a>
+    </div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open navigation"><span></span><span></span></button>
   </nav>
 
-  <!-- Hero -->
   <header id="top" class="hero">
-    <div class="container hero-grid">
-      <div class="hero-text">
-        <div class="hero-badge">
-          <span class="badge-dot"></span> Available for opportunities
-        </div>
-        <h1 class="hero-name" aria-label="Andr&eacute; Vaz">
-          <span class="name-line" aria-hidden="true">
-            <span class="name-char" style="--i:0">A</span><span class="name-char" style="--i:1">n</span><span class="name-char" style="--i:2">d</span><span class="name-char" style="--i:3">r</span><span class="name-char" style="--i:4">&eacute;</span>
-          </span>
-          <br>
-          <span class="gradient-text name-line" aria-hidden="true">
-            <span class="name-char" style="--i:5">V</span><span class="name-char" style="--i:6">a</span><span class="name-char" style="--i:7">z</span>
-          </span>
-        </h1>
-        <p class="hero-role">Computer Engineering Student</p>
-        <p class="hero-desc">
-          Fullstack-focused developer passionate about algorithms, system design and building
-          real-world software — from Spring Boot backends to Android apps with Jetpack Compose.
-        </p>
+    <div class="hero-aura aura-one" aria-hidden="true"></div>
+    <div class="hero-aura aura-two" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
 
-        <div class="hero-actions">
-          <a class="btn primary large" href="https://www.linkedin.com/in/andr%C3%A9-filipe-de-sousa-vaz-491632333/" target="_blank">
-            <i class="fab fa-linkedin"></i> LinkedIn
-          </a>
-          <a class="btn ghost large" href="assets/André_Vaz_CV.pdf" target="_blank">
-            <i class="fas fa-file-pdf"></i> Currículo
-          </a>
-          <a class="btn ghost large" href="https://github.com/AndreVaz51585" target="_blank">
-            <i class="fab fa-github"></i> GitHub
-          </a>
-        </div>
+    <div class="hero-status">
+      <span><i></i> Lisbon, Portugal</span>
+      <span>AI &amp; Data Consulting · EY</span>
+    </div>
 
-        <div class="tech-pills">
-          <span class="tech-pill"><i class="fas fa-server"></i> Spring Boot</span>
-          <span class="tech-pill"><i class="fab fa-react"></i> React</span>
-          <span class="tech-pill"><i class="fab fa-android"></i> Android</span>
-          <span class="tech-pill"><i class="fas fa-database"></i> PostgreSQL</span>
-          <span class="tech-pill"><i class="fab fa-docker"></i> Docker</span>
-        </div>
-      </div>
-
-      <div class="hero-visual">
-        <div class="profile-card">
-          <img class="profile-photo" src="assets/face-optimized.jpg" alt="André Vaz" decoding="async" fetchpriority="high" />
-          <div class="profile-energy" aria-hidden="true">
-            <span></span>
-            <span></span>
-          </div>
-          <div class="profile-card-label">
-            <span>André Vaz</span>
-            <small>Computer Engineering</small>
-          </div>
-        </div>
-
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-num" data-count="10" data-suffix="+">0+</span>
-            <span class="stat-label">Projects</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat-num" data-count="5" data-suffix="+">0+</span>
-            <span class="stat-label">Languages</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat-num" data-count="3" data-suffix="rd">0rd</span>
-            <span class="stat-label">Year</span>
-          </div>
-        </div>
+    <div class="hero-title-wrap">
+      <p class="hero-eyebrow">Computer Engineer / AI × Security</p>
+      <h1 aria-label="André Vaz">
+        <span class="hero-line hero-line-a"><i class="kinetic-name" data-label="André">André</i></span>
+        <span class="hero-line hero-line-v"><i class="kinetic-name" data-label="Vaz">Vaz</i><b>©26</b></span>
+      </h1>
+      <div class="hero-subline">
+        <p>I design the architecture behind<br>intelligent systems people can trust.</p>
+        <a href="#work" class="hero-explore magnetic"><span>Explore selected work</span><i>↓</i></a>
       </div>
     </div>
 
-    <div class="scroll-hint">
-      <span>Scroll to explore</span>
-      <i class="fas fa-chevron-down"></i>
+    <div class="hero-signal" aria-hidden="true">
+      <div class="signal-halo halo-a"></div>
+      <div class="signal-halo halo-b"></div>
+      <div class="signal-sweep"></div>
+      <div class="signal-axis axis-x"></div>
+      <div class="signal-axis axis-y"></div>
+      <div class="signal-orbit orbit-a"></div>
+      <div class="signal-orbit orbit-b"></div>
+      <div class="signal-satellite satellite-a"><i></i><span>Model</span></div>
+      <div class="signal-satellite satellite-b"><i></i><span>Trust</span></div>
+      <div class="signal-core"><i></i><span class="signal-word">REASON</span><small>System core</small></div>
+      <span class="signal-label label-ai">AI</span>
+      <span class="signal-label label-sec">SEC</span>
+      <span class="signal-label label-arch">ARCH</span>
+      <div class="signal-readout">
+        <span><i></i> Architecture online</span>
+        <b>AI / SECURITY / SYSTEMS</b>
+      </div>
     </div>
+
+    <div class="hero-scroll" aria-hidden="true"><span>Scroll to enter</span><i></i></div>
   </header>
 
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-text">
-          <span class="section-label">About Me</span>
-          <h2>Turning ideas into <span class="gradient-text">working software</span></h2>
-          <p class="about-desc">
-            I'm a Computer Engineering student who enjoys turning ideas into working software.
-            I focus mainly on full-stack development, but I'm equally interested in algorithms,
-            system design, and understanding how things work under the hood.
-          </p>
-          <p class="about-desc">
-            I like building projects that solve real problems and help me grow as a developer —
-            from backend REST APIs to native Android apps.
-          </p>
-          <div class="about-links">
-            <a class="btn primary" href="assets/André_Vaz_CV.pdf" target="_blank">
-              <i class="fas fa-file-pdf"></i> Download CV
-            </a>
-            <a class="btn ghost" href="mailto:andre.vaz2005@gmail.com">
-              <i class="fas fa-envelope"></i> Email Me
-            </a>
+  <main id="content">
+    <section class="manifesto scroll-chapter" aria-label="How I like to work">
+      <div class="manifesto-stage">
+        <p class="chapter-label">How I like to work</p>
+        <div class="manifesto-lines">
+          <p data-line="0">I enjoy the hard part<br><em>before coding.</em></p>
+          <p data-line="1">Understanding the problem.<br><em>Drawing the architecture.</em></p>
+          <p data-line="2">Then making AI and security<br><em>work together.</em></p>
+        </div>
+        <div class="chapter-count"><span>01</span><i></i><b>03</b></div>
+      </div>
+    </section>
+
+    <section id="work" class="work-intro">
+      <div class="work-intro-grid" aria-hidden="true"></div>
+      <div class="work-intro-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="section-kicker reveal">Selected work · 2024—2026</p>
+      <h2 class="word-reveal reveal" data-word-reveal>Selected<br><span>projects.</span></h2>
+      <p class="work-intro-copy reveal">AI, cybersecurity and product engineering — built from the architecture out.</p>
+      <div class="work-stack reveal" aria-label="Technology stack used across selected projects">
+        <span>Kotlin</span><span>Spring Boot</span><span>React</span><span>TypeScript</span><span>Python</span><span>OpenAI</span><span>LangChain</span><span>FastAPI</span><span>ChromaDB</span><span>PostgreSQL</span><span>Docker</span><span>Jetpack Compose</span>
+      </div>
+    </section>
+
+    <section class="project-story" aria-label="Selected project stories">
+      <div class="project-stage">
+        <div class="project-ambient" aria-hidden="true"></div>
+        <div class="project-nav" aria-hidden="true">
+          <span class="project-counter">01</span>
+          <div class="project-dots"><i class="is-active"></i><i></i><i></i><i></i></div>
+          <span>04</span>
+        </div>
+
+        <article class="project-scene scene-evolab is-active" data-project="0">
+          <div class="project-copy">
+            <p class="project-kind">AI infrastructure · 2026</p>
+            <h3>EvoLab<br><span>as a Service</span></h3>
+            <p class="project-one-liner">Evolutionary AI experiments, transformed into a reliable multi-user platform.</p>
+            <div class="project-facts">
+              <span>Queued workloads</span><span>Container workers</span><span>OAuth 2.0</span>
+            </div>
+            <a class="project-link magnetic" href="https://github.com/Projeto-Final-Leic-2026-Andre-Miguel/EvoLabAsAService" target="_blank" rel="noreferrer"><span>Open case study</span><i>↗</i></a>
+          </div>
+          <div class="device-stage project-visual-switch" tabindex="0" aria-label="EvoLab visual. Move right or tap to inspect the architecture.">
+            <div class="browser-device tilt-card">
+              <div class="device-bar"><i></i><i></i><i></i><span>evolab.app / workspace</span></div>
+              <div class="device-screen"><img src="assets/EvoLab.jpeg" alt="Complete EvoLab platform interface" loading="eager" decoding="async"></div>
+            </div>
+            <div class="floating-chip chip-a"><i></i><span>Worker pool</span><b>Active</b></div>
+            <div class="floating-chip chip-b"><span>Queue</span><b>04 jobs</b></div>
+            <div class="project-architecture-overlay architecture-evolab" aria-hidden="true">
+              <header><span>01 / System architecture</span><b>EvoLab as a Service</b></header>
+              <div class="topology topology-evolab">
+                <div class="topology-node is-primary"><small>Experience</small><strong>React + TypeScript</strong><em>Vite · Framer Motion</em></div><i>→</i>
+                <div class="topology-node"><small>Delivery</small><strong>Nginx</strong><em>HTTPS · Reverse proxy</em></div><i>→</i>
+                <div class="topology-node"><small>Core API</small><strong>Kotlin + Spring</strong><em>REST · OAuth · BCrypt</em></div>
+              </div>
+              <div class="topology-branches"><div><small>State</small><strong>PostgreSQL</strong><span>JDBI · AES-256</span></div><div><small>Execution</small><strong>Docker workers</strong><span>Queue → OpenEvolve</span></div></div>
+            </div>
+            <div class="project-side-cue" aria-hidden="true"><span>Image</span><i></i><span>Architecture</span></div>
+          </div>
+        </article>
+
+        <article class="project-scene scene-chatbot" data-project="1">
+          <div class="project-copy">
+            <p class="project-kind">OpenEvolve companion · 2026</p>
+            <h3>EvoLab<br><span>Chatbot</span></h3>
+            <p class="project-one-liner">The conversational layer of OpenEvolve, bringing project knowledge directly into the platform.</p>
+            <div class="project-facts">
+              <span>RAG</span><span>LangChain</span><span>ChromaDB</span><span>FastAPI</span>
+            </div>
+            <a class="project-link magnetic" href="https://github.com/AndreVaz51585/Chatbot" target="_blank" rel="noreferrer"><span>Open repository</span><i>↗</i></a>
+          </div>
+          <div class="device-stage chatbot-devices project-visual-switch" tabindex="0" aria-label="EvoLab Chatbot visual. Move right or tap to inspect the RAG architecture.">
+            <div class="chatbot-shell tilt-card">
+              <div class="chatbot-top"><span><i></i> OpenEvolve Assistant</span><b>RAG online</b></div>
+              <div class="chatbot-screen"><img src="assets/ChatBot.jpeg" alt="Complete EvoLab Chatbot interface" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="rag-flow" aria-label="Retrieval augmented generation pipeline">
+              <span><i>01</i>Project knowledge</span><b></b>
+              <span><i>02</i>ChromaDB</span><b></b>
+              <span><i>03</i>LangChain</span><b></b>
+              <span><i>04</i>OpenEvolve</span>
+            </div>
+            <div class="floating-chip chip-a"><i></i><span>Context</span><b>Retrieved</b></div>
+            <div class="project-architecture-overlay architecture-chatbot" aria-hidden="true">
+              <header><span>02 / RAG pipeline</span><b>EvoLab Chatbot</b></header>
+              <div class="rag-mini-row"><small>Knowledge</small><strong>Documents</strong><i>→</i><strong>Chunks</strong><i>→</i><strong>Embeddings</strong><i>→</i><strong>ChromaDB</strong></div>
+              <div class="rag-mini-row"><small>Answer</small><strong>User query</strong><i>→</i><strong>Similarity</strong><i>→</i><strong>Context</strong><i>→</i><strong>Gemini</strong></div>
+              <div class="architecture-deploy"><i></i><span>Python · FastAPI · LangChain</span><b>Deployed on Google Cloud Platform</b></div>
+            </div>
+            <div class="project-side-cue" aria-hidden="true"><span>Image</span><i></i><span>Architecture</span></div>
+          </div>
+        </article>
+
+        <article class="project-scene scene-poker" data-project="2">
+          <div class="project-copy">
+            <p class="project-kind">Distributed product · 2025</p>
+            <h3>Poker<br><span>Dice</span></h3>
+            <p class="project-one-liner">One real-time game architecture, expressed across web and native Android.</p>
+            <div class="project-facts">
+              <span>Spring Boot</span><span>React</span><span>Jetpack Compose</span>
+            </div>
+            <div class="project-link-row">
+              <a class="project-link magnetic" href="https://github.com/AndreVaz51585/PokerDice-Daw" target="_blank" rel="noreferrer"><span>Web</span><i>↗</i></a>
+              <a class="project-link project-link-secondary magnetic" href="https://github.com/AndreVaz51585/PokerDice-Pdm" target="_blank" rel="noreferrer"><span>Android</span><i>↗</i></a>
+            </div>
+          </div>
+          <div class="device-stage poker-devices project-visual-switch" tabindex="0" aria-label="Poker Dice visual. Move right or tap to inspect the web and mobile architecture.">
+            <div class="browser-device tilt-card">
+              <div class="device-bar"><i></i><i></i><i></i><span>poker-dice / game room</span></div>
+              <div class="device-screen"><img src="assets/ChelasPokerDiceWEB.png" alt="Complete Poker Dice web interface" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="phone-device">
+              <div class="phone-island"></div>
+              <img src="assets/ChelasPokerDiceandroid.jpg" alt="Poker Dice Android interface" loading="lazy" decoding="async">
+            </div>
+            <div class="project-architecture-overlay architecture-poker" aria-hidden="true">
+              <header><span>03 / Real-time product</span><b>Poker Dice</b></header>
+              <div class="poker-clients"><div><small>Web</small><strong>React + TypeScript</strong></div><div><small>Android</small><strong>Jetpack Compose</strong></div></div>
+              <div class="poker-live-link"><span>REST</span><i></i><b>Server-Sent Events</b><i></i><span>Live state</span></div>
+              <div class="poker-core"><small>Concurrent game engine</small><strong>Kotlin + Spring Boot</strong><span>Sessions · turns · events</span></div>
+              <div class="poker-db"><i></i><strong>PostgreSQL</strong><small>JDBI persistence</small></div>
+            </div>
+            <div class="project-side-cue" aria-hidden="true"><span>Image</span><i></i><span>Architecture</span></div>
+          </div>
+        </article>
+
+        <article class="project-scene scene-veridict" data-project="3">
+          <div class="project-copy">
+            <p class="project-kind">AI × Cybersecurity · 2026</p>
+            <h3>Veridict<br><span>AI</span></h3>
+            <p class="project-one-liner">Explainable risk intelligence for suspicious links, phishing and smishing.</p>
+            <div class="project-facts">
+              <span>Local AI</span><span>Live reputation</span><span>Privacy first</span>
+            </div>
+            <a class="project-link magnetic" href="https://github.com/AndreVaz51585/Veridict-AI" target="_blank" rel="noreferrer"><span>Open case study</span><i>↗</i></a>
+          </div>
+          <div class="device-stage project-visual-switch" tabindex="0" aria-label="Veridict AI visual. Move right or tap to inspect the risk architecture.">
+            <div class="browser-device tilt-card">
+              <div class="device-bar"><i></i><i></i><i></i><span>veridict.ai / analysis</span></div>
+              <div class="device-screen"><img src="assets/VeridictAi.jpeg" alt="Complete Veridict AI security interface" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="risk-orbit" aria-hidden="true"><span>01</span><span>02</span><span>03</span></div>
+            <div class="floating-chip chip-a"><i></i><span>Assessment</span><b>Explainable</b></div>
+            <div class="project-architecture-overlay architecture-veridict" aria-hidden="true">
+              <header><span>04 / Security architecture</span><b>Veridict AI</b></header>
+              <div class="veridict-mini-input">URL / message <i>↓</i></div>
+              <div class="veridict-mini-pillars"><div><b>35%</b><strong>Rules</strong><small>Patterns · urgency</small></div><div><b>35%</b><strong>Reputation</strong><small>DNS · WHOIS · Safe Browsing</small></div><div><b>30%</b><strong>AI</strong><small>Local LLM · RAG</small></div></div>
+              <div class="veridict-mini-score"><span>Weighted assessment</span><strong>Explainable risk score</strong><i></i></div>
+            </div>
+            <div class="project-side-cue" aria-hidden="true"><span>Image</span><i></i><span>Architecture</span></div>
+          </div>
+        </article>
+
+        <p class="project-scroll-hint" aria-hidden="true">Scroll to change project <span>↓</span></p>
+      </div>
+    </section>
+
+    <section class="project-depth" aria-label="Project implementation details" hidden>
+      <header class="depth-header reveal">
+        <p class="section-kicker">Under the hood</p>
+        <h2 class="word-reveal reveal" data-word-reveal>Architecture,<br><span>not just screenshots.</span></h2>
+        <p>Four products, four different technical problems — explained through the systems that make them work.</p>
+      </header>
+
+      <div class="depth-list">
+        <article class="depth-card depth-evolab reveal" data-project="01" tabindex="0">
+          <div class="depth-copy">
+            <div class="depth-meta"><span>01 / Platform architecture</span><b>18 / 20</b></div>
+            <h3>EvoLab as a Service</h3>
+            <p>A multi-user platform around OpenEvolve that turns LLM-driven algorithm evolution into a configurable, observable product. Users can connect OpenAI, Gemini, Anthropic or local models, upload evaluators, launch isolated experiments and follow fitness, checkpoints and best solutions. Google OAuth, BCrypt password hashing and encrypted provider credentials protect the workspace.</p>
+            <div class="depth-tags"><span>React 19</span><span>TypeScript</span><span>Kotlin</span><span>Spring Boot</span><span>PostgreSQL</span><span>Docker</span><span>OAuth 2.0</span></div>
+          </div>
+          <div class="depth-preview" aria-hidden="true">
+            <img src="assets/EvoLab.jpeg" alt="" loading="lazy" decoding="async">
+            <span><i>↗</i><b>Hover to inspect</b><small>System architecture</small></span>
+          </div>
+          <div class="architecture-map map-evolab depth-architecture" aria-label="EvoLab system architecture">
+            <div class="map-node node-accent"><small>Experience</small><strong>React + TypeScript</strong><em>Vite · Framer Motion</em></div>
+            <i class="map-line"><span>HTTPS</span></i>
+            <div class="map-node"><small>Delivery</small><strong>Nginx</strong><em>Reverse proxy</em></div>
+            <i class="map-line"><span>REST</span></i>
+            <div class="map-node"><small>Core API</small><strong>Kotlin + Spring</strong><em>REST · OAuth 2.0 · BCrypt</em></div>
+            <div class="map-split"><i></i><i></i></div>
+            <div class="map-branches">
+              <div class="map-node"><small>State</small><strong>PostgreSQL</strong><em>JDBI · AES-256</em></div>
+              <div class="map-node node-dark"><small>Execution</small><strong>Docker workers</strong><em>Queue → OpenEvolve</em></div>
+            </div>
+          </div>
+          <a href="https://github.com/Projeto-Final-Leic-2026-Andre-Miguel/EvoLabAsAService" target="_blank" rel="noreferrer" aria-label="Open EvoLab repository">View repository <span>↗</span></a>
+        </article>
+
+        <article class="depth-card depth-chatbot reveal" data-project="02" tabindex="0">
+          <div class="depth-copy">
+            <div class="depth-meta"><span>02 / RAG pipeline</span><b>Google Cloud</b></div>
+            <h3>EvoLab Chatbot</h3>
+            <p>A deployable FastAPI service and embedded chat experience that grounds Gemini responses in project documentation. Retrieval happens before generation, so answers arrive with the most relevant EvoLab context instead of relying on model memory.</p>
+            <div class="depth-tags"><span>Python</span><span>FastAPI</span><span>LangChain</span><span>Gemini</span><span>ChromaDB</span><span>Docker</span></div>
+          </div>
+          <div class="depth-preview depth-preview-chatbot" aria-hidden="true">
+            <img src="assets/ChatBot.jpeg" alt="" loading="lazy" decoding="async">
+            <span><i>↗</i><b>Hover to inspect</b><small>RAG architecture</small></span>
+          </div>
+          <div class="rag-architecture depth-architecture" aria-label="EvoLab Chatbot retrieval augmented generation process">
+            <div class="rag-track rag-ingest">
+              <span class="rag-label">Knowledge preparation</span>
+              <div class="rag-node"><i>01</i><strong>Documents</strong><small>Loader</small></div><b>→</b>
+              <div class="rag-node"><i>02</i><strong>Chunks</strong><small>Split</small></div><b>→</b>
+              <div class="rag-node"><i>03</i><strong>Embeddings</strong><small>Gemini</small></div><b>→</b>
+              <div class="rag-node rag-node-db"><i>04</i><strong>ChromaDB</strong><small>Vectors</small></div>
+            </div>
+            <div class="rag-track rag-query">
+              <span class="rag-label">Answer flow</span>
+              <div class="rag-node"><i>01</i><strong>User query</strong><small>Widget</small></div><b>→</b>
+              <div class="rag-node"><i>02</i><strong>Similarity</strong><small>Search</small></div><b>→</b>
+              <div class="rag-node"><i>03</i><strong>Context</strong><small>Retrieved</small></div><b>→</b>
+              <div class="rag-node rag-node-answer"><i>04</i><strong>Answer</strong><small>LangChain</small></div>
+            </div>
+            <div class="cloud-deploy"><i></i><span>Containerized API</span><strong>Deployed on Google Cloud Platform</strong></div>
+          </div>
+          <a href="https://github.com/AndreVaz51585/Chatbot" target="_blank" rel="noreferrer" aria-label="Open EvoLab Chatbot repository">View repository <span>↗</span></a>
+        </article>
+
+        <article class="depth-card depth-poker reveal" data-project="03" tabindex="0">
+          <div class="depth-copy">
+            <div class="depth-meta"><span>03 / Real-time product</span><b>Web + Android</b></div>
+            <h3>Poker Dice</h3>
+            <p>A shared multiplayer backend serving two purpose-built clients. The React web app and native Jetpack Compose app consume the same REST API, while Server-Sent Events keep concurrent game rooms synchronized in real time.</p>
+            <div class="depth-tags"><span>Kotlin</span><span>Spring Boot</span><span>React</span><span>TypeScript</span><span>Jetpack Compose</span><span>PostgreSQL</span></div>
+          </div>
+          <div class="depth-preview" aria-hidden="true">
+            <img src="assets/ChelasPokerDiceWEB.png" alt="" loading="lazy" decoding="async">
+            <span><i>↗</i><b>Hover to inspect</b><small>Web + mobile architecture</small></span>
+          </div>
+          <div class="poker-architecture depth-architecture" aria-label="Poker Dice web and Android architecture">
+            <div class="client-node client-web"><small>Web client</small><strong>React + TypeScript</strong><span>Browser</span></div>
+            <div class="client-node client-mobile"><small>Native client</small><strong>Jetpack Compose</strong><span>Android Studio</span></div>
+            <div class="sync-lines" aria-hidden="true"><i></i><i></i><b>REST + SSE</b></div>
+            <div class="server-node"><small>Concurrent game engine</small><strong>Kotlin + Spring Boot</strong><span>Sessions · turns · live events</span></div>
+            <i class="database-line"></i>
+            <div class="database-node"><i></i><strong>PostgreSQL</strong><small>JDBI persistence</small></div>
+          </div>
+          <div class="depth-link-pair"><a href="https://github.com/AndreVaz51585/PokerDice-Daw" target="_blank" rel="noreferrer">Web repository <span>↗</span></a><a href="https://github.com/AndreVaz51585/PokerDice-Pdm" target="_blank" rel="noreferrer">Android repository <span>↗</span></a></div>
+        </article>
+
+        <article class="depth-card depth-veridict reveal" data-project="04" tabindex="0">
+          <div class="depth-copy">
+            <div class="depth-meta"><span>04 / Security experiment</span><b>In evolution</b></div>
+            <h3>Veridict AI</h3>
+            <p>An experimental phishing and smishing assessment platform. It combines deterministic signals, live domain reputation and local AI reasoning to produce an explainable risk score — a fast prototype with a clear path to stronger models and evaluation.</p>
+            <div class="depth-tags"><span>Python</span><span>Rules</span><span>Safe Browsing</span><span>WHOIS</span><span>ChromaDB</span><span>Local LLM</span></div>
+          </div>
+          <div class="depth-preview" aria-hidden="true">
+            <img src="assets/VeridictAi.jpeg" alt="" loading="lazy" decoding="async">
+            <span><i>↗</i><b>Hover to inspect</b><small>Risk scoring architecture</small></span>
+          </div>
+          <div class="veridict-architecture depth-architecture" aria-label="Veridict AI risk scoring process">
+            <div class="veridict-input">URL / message<i>↓</i></div>
+            <div class="veridict-pillars">
+              <div><b>35%</b><strong>Rules</strong><small>Patterns · urgency · typosquatting</small></div>
+              <div><b>35%</b><strong>Reputation</strong><small>DNS · WHOIS · Safe Browsing</small></div>
+              <div><b>30%</b><strong>AI</strong><small>Local LLM · RAG · explanation</small></div>
+            </div>
+            <div class="risk-output"><span>Weighted assessment</span><strong>Explainable risk score</strong><i>0</i><em></em><b>100</b></div>
+          </div>
+          <a href="https://github.com/AndreVaz51585/Veridict-AI" target="_blank" rel="noreferrer" aria-label="Open Veridict AI repository">View repository <span>↗</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="experience-story">
+      <div class="experience-stage">
+        <div class="experience-heading">
+          <p class="section-kicker">Experience</p>
+          <h2 class="word-reveal reveal" data-word-reveal>One month became<br>the next chapter.</h2>
+          <p class="experience-lead">A summer project in AI and cybersecurity became the starting point for my current work in consulting.</p>
+          <div class="experience-company reveal" aria-label="EY, AI and Data Consulting">
+            <span class="experience-company-logo"><img src="assets/ey-logo.svg" alt="EY logo"></span>
+            <span class="experience-company-copy"><b>EY</b><small>AI &amp; Data Consulting</small></span>
           </div>
         </div>
-        <div class="about-cards">
-          <div class="about-card">
-            <h4>Full-Stack Dev</h4>
-            <p>Backend APIs, frontends and databases — end to end.</p>
+        <div class="ey-monogram" aria-hidden="true">EY</div>
+        <div class="journey-map" aria-label="Career progression">
+          <span class="is-active" data-journey="0"><i>Aug 2026</i><b>Summer Intern</b></span>
+          <em></em>
+          <span data-journey="1"><i>Sep 2026</i><b>Assistant</b></span>
+          <em></em>
+          <span class="journey-now"><i>Now</i><b>AI &amp; Data Consulting</b></span>
+        </div>
+        <div class="experience-scenes">
+          <article class="experience-scene is-active" data-experience="0">
+            <div class="experience-number">01 / 02</div>
+            <p class="experience-date">August 2026 — 4 September 2026</p>
+            <h3>Summer Intern<br><span>AI &amp; Data Consulting</span></h3>
+            <p>Designed an AI agent to map a company's external attack surface by orchestrating discovery, crawling, vulnerability scanning and structured analysis.</p>
+            <div class="attack-flow" aria-label="Attack surface agent workflow">
+              <span><i>01</i>Discover</span><b></b><span><i>02</i>Crawl</span><b></b><span><i>03</i>Scan</span><b></b><span><i>04</i>Reason</span>
+            </div>
+            <div class="experience-tags"><span>OWASP Amass</span><span>Katana</span><span>Crawl4AI</span><span>Tavily</span><span>Nuclei</span><span>Nikto</span></div>
+          </article>
+          <article class="experience-scene" data-experience="1">
+            <div class="experience-number">02 / 02</div>
+            <p class="experience-date">September 2026 — Present</p>
+            <h3>Assistant<br><span>AI &amp; Data Consulting</span></h3>
+            <p>Now contributing to consulting work while pursuing my Master's, with a clear focus on responsible, secure and useful AI systems.</p>
+            <div class="experience-tags"><span>Artificial Intelligence</span><span>Data</span><span>Responsible AI</span></div>
+          </article>
+        </div>
+        <div class="experience-progress" aria-hidden="true"><i></i></div>
+      </div>
+    </section>
+
+    <section id="education" class="education-section" aria-label="Education">
+      <div class="education-background" aria-hidden="true"><span>AI</span><span>SECURITY</span><span>SYSTEMS</span></div>
+      <div class="education-intro reveal">
+        <p class="section-kicker">Education</p>
+        <h2 class="word-reveal reveal" data-word-reveal>Deepening the<br><span>technical foundation.</span></h2>
+      </div>
+      <div class="education-cards">
+        <article class="education-card reveal">
+          <div class="education-top"><span>Now</span><img class="education-logo logo-nova" src="assets/nova-fct-logo.png" alt="NOVA FCT" loading="lazy"></div>
+          <h3>Master of Science<br><span>Computer Engineering</span></h3>
+          <p>Specialization in Artificial Intelligence<br>Minor in Cybersecurity</p>
+          <time>September 2026 — Present</time>
+          <div class="education-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+        </article>
+        <article class="education-card education-card-light reveal">
+          <div class="education-top"><span>Completed</span><img class="education-logo logo-isel" src="assets/isel-logo.svg" alt="ISEL - Instituto Superior de Engenharia de Lisboa" loading="lazy"></div>
+          <h3>Bachelor of Engineering<br><span>Computer Science and<br>Computer Engineering</span></h3>
+          <div class="degree-result"><p>Final grade</p><strong>15<span>/20</span></strong></div>
+          <div class="coursework" aria-label="Selected course grades">
+            <p>Selected coursework</p>
+            <div><span style="--grade:.90">Artificial Intelligence <b>18</b></span><span style="--grade:.90">Project &amp; Seminar <b>18</b></span><span style="--grade:.85">Concurrent Programming <b>17</b></span><span style="--grade:.85">Programming <b>17</b></span><span style="--grade:.80">Cybersecurity <b>16</b></span></div>
           </div>
-          <div class="about-card">
-            <h4>Mobile Dev</h4>
-            <p>Android apps with Jetpack Compose and Kotlin.</p>
-          </div>
-          <div class="about-card">
-            <h4>Low-Level</h4>
-            <p>Assembly, C and FPGA/VHDL hardware integrations.</p>
-          </div>
-          <div class="about-card">
-            <h4>DevOps</h4>
-            <p>Docker, Nginx, Render deployments.</p>
-          </div>
+          <time>September 2023 — 2026</time>
+        </article>
+      </div>
+    </section>
+
+    <section id="certifications" class="certifications-section" aria-label="Certifications">
+      <header class="certifications-header reveal">
+        <div>
+          <p class="section-kicker">Credentials / Continuous learning</p>
+          <h2 class="word-reveal reveal" data-word-reveal>Learning,<br><span>made visible.</span></h2>
+        </div>
+        <p>A growing record of focused learning across artificial intelligence, agents and cybersecurity.</p>
+      </header>
+      <div class="certifications-rail" aria-label="Certification cards">
+        <article class="certification-card certification-ey reveal">
+          <div class="certification-mark" aria-hidden="true">EY<i></i></div>
+          <div class="certification-meta"><span>01 / Applied AI</span><b>Credential</b></div>
+          <h3>EY AI<br>Challenge</h3>
+          <p>Applied problem-solving at the intersection of AI, professional services and real-world delivery.</p>
+          <div class="certification-footer"><span>Artificial Intelligence</span><i>↗</i></div>
+        </article>
+        <article class="certification-card certification-langgraph reveal">
+          <div class="certification-mark certification-graph" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="certification-meta"><span>02 / Agent systems</span><b>Foundation</b></div>
+          <h3>Introduction to<br>LangGraph — Python</h3>
+          <p>Foundational work with graph-based agent workflows, stateful orchestration and Python.</p>
+          <div class="certification-footer"><span>LangGraph · Python</span><i>↗</i></div>
+        </article>
+        <article class="certification-card certification-next reveal">
+          <div class="certification-meta"><span>Next / In progress</span><b>Continuous</b></div>
+          <h3>Always<br>building depth.</h3>
+          <p>This rail is designed to grow as new certifications and specialist credentials are completed.</p>
+          <div class="certification-pulse" aria-hidden="true"><i></i><span>New credentials will appear here</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <div class="about-portrait reveal">
+        <div class="portrait-orbit" aria-hidden="true"><i></i><span>AI × SEC × SYS</span></div>
+        <div class="portrait-window"><img src="assets/face-optimized.jpg" alt="Portrait of André Vaz" loading="lazy" decoding="async"></div>
+        <div class="portrait-caption"><span>André Vaz</span><span>Lisbon · PT</span></div>
+      </div>
+      <div class="about-copy reveal">
+        <p class="section-kicker">About / Philosophy</p>
+        <h2 class="word-reveal center-reveal reveal" data-word-reveal>I care about what happens<br><em>before</em> the first line of code.</h2>
+        <p>Good systems begin with the right questions: what are we solving, where can it fail, and how should the pieces work together?</p>
+        <p>That is why I am drawn to AI, cybersecurity and architecture — three ways of turning complexity into something dependable.</p>
+        <div class="about-principles">
+          <span><i>01</i>Think in systems</span>
+          <span><i>02</i>Design for trust</span>
+          <span><i>03</i>Learn by building</span>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Skills -->
-  <section id="skills" class="section section-dark">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Skills</span>
-        <h2>Technologies I <span class="gradient-text">work with</span></h2>
-        <p class="section-sub">A snapshot of the technologies I use frequently.</p>
+    <section class="skills-section" aria-label="Technical capabilities">
+      <div class="skills-marquee" aria-hidden="true">
+        <div><span>Artificial Intelligence</span><i>✦</i><span>Cybersecurity</span><i>✦</i><span>System Architecture</span><i>✦</i><span>Full-stack Engineering</span><i>✦</i><span>Artificial Intelligence</span><i>✦</i><span>Cybersecurity</span><i>✦</i><span>System Architecture</span><i>✦</i><span>Full-stack Engineering</span><i>✦</i></div>
       </div>
-
       <div class="skills-grid">
-        <div class="skill-card">
-          <h3>Languages</h3>
-          <div class="skill-tags">
-            <span>Kotlin</span><span>JavaScript</span><span>TypeScript</span><span>Python</span><span>C</span><span>Assembly</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Web & Frameworks</h3>
-          <div class="skill-tags">
-            <span>Spring Boot</span><span>React</span><span>Node.js</span><span>FastApi</span><span>LangChain</span><span>RAG</span><span>Express</span><span>http4k</span><span>Jakarta</span><span>JPA</span><span>docker-java</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Databases & DevOps</h3>
-          <div class="skill-tags">
-            <span>PostgreSQL</span><span>MongoDB</span><span>JDBC</span><span>Docker</span><span>ChromaDB</span><span>Nginx</span><span>OpenEvolve</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Mobile & Tools</h3>
-          <div class="skill-tags">
-            <span>Jetpack Compose</span><span>Android Studio</span><span>OAuth 2.0</span><span>OpenID</span><span>OpenAI</span><span>Gemini</span><span>Local Models</span><span>Render</span><span>ngrok</span>
-          </div>
+        <article class="reveal" tabindex="0"><span>01</span><h3>Intelligent systems</h3><p>LangChain · LangGraph · RAG · ChromaDB · Local LLMs · FastAPI</p><div class="skill-more"><b>On hover / Focus</b><span>Agent orchestration</span><span>Retrieval pipelines</span><span>Model evaluation</span></div></article>
+        <article class="reveal" tabindex="0"><span>02</span><h3>Product engineering</h3><p>Kotlin · Python · TypeScript · JavaScript · React · Spring Boot</p><div class="skill-more"><b>On hover / Focus</b><span>Layered APIs</span><span>Real-time state</span><span>Web + mobile clients</span></div></article>
+        <article class="reveal" tabindex="0"><span>03</span><h3>Data &amp; infrastructure</h3><p>PostgreSQL · MongoDB · Docker · Nginx · OAuth 2.0 · OpenID</p><div class="skill-more"><b>On hover / Focus</b><span>Relational modelling</span><span>Container delivery</span><span>Identity &amp; secrets</span></div></article>
+      </div>
+    </section>
+
+    <section id="archive" class="archive-section">
+      <header class="archive-header reveal">
+        <div><p class="section-kicker">Project archive</p><h2 class="word-reveal reveal" data-word-reveal>More things I've built.</h2></div>
+        <a href="https://github.com/AndreVaz51585" target="_blank" rel="noreferrer">View all on GitHub ↗</a>
+      </header>
+      <div class="archive-list">
+        <a class="archive-item reveal" href="https://github.com/AndreVaz51585/Paddle-Courts-Manager" target="_blank" rel="noreferrer"><span>01</span><div class="archive-thumb"><img src="assets/paddle.jpg" alt="Paddle Courts Manager interface" loading="lazy"></div><h3>Paddle Courts Manager</h3><p>Kotlin · PostgreSQL · http4k</p><b>↗</b></a>
+        <a class="archive-item reveal" href="https://github.com/AndreVaz51585/ReversiGame-tds" target="_blank" rel="noreferrer"><span>02</span><div class="archive-thumb"><img src="assets/Reversi.png" alt="Reversi game interface" loading="lazy"></div><h3>Reversi Game</h3><p>Kotlin · Compose · MongoDB</p><b>↗</b></a>
+        <a class="archive-item reveal" href="https://github.com/AndreVaz51585/SnakeGame" target="_blank" rel="noreferrer"><span>03</span><div class="archive-thumb"><img src="assets/snake.png" alt="Snake game interface" loading="lazy"></div><h3>Snake Game</h3><p>Kotlin · Canvas API</p><b>↗</b></a>
+        <a class="archive-item reveal" href="https://github.com/DiogoTeixeira3/SegInf" target="_blank" rel="noreferrer"><span>04</span><div class="archive-thumb"><img src="assets/gitTasks.jpg" alt="Git Tasks Manager interface" loading="lazy"></div><h3>Git Tasks Manager</h3><p>JavaScript · OAuth 2.0 · OpenID</p><b>↗</b></a>
+        <a class="archive-item reveal" href="https://github.com/rodrigodorey/licSoftware" target="_blank" rel="noreferrer"><span>05</span><div class="archive-thumb"><img src="assets/lic.png" alt="Roulette game interface" loading="lazy"></div><h3>Roulette Game</h3><p>Kotlin · VHDL · FPGA</p><b>↗</b></a>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="contact-grid" aria-hidden="true"></div>
+      <p class="section-kicker reveal">Start a conversation</p>
+      <h2 class="word-reveal reveal" data-word-reveal>Let's build something<br><span>worth trusting.</span></h2>
+      <a class="contact-email magnetic reveal" href="mailto:andrevaz2005@gmail.com"><span>andrevaz2005@gmail.com</span><i>↗</i></a>
+      <div class="contact-profiles reveal" aria-label="Professional profiles">
+        <a href="https://github.com/AndreVaz51585" target="_blank" rel="noreferrer"><small>01 / Code</small><strong>GitHub</strong><span>Projects, experiments and repositories</span><i>↗</i></a>
+        <a href="https://www.linkedin.com/in/andr%C3%A9-filipe-de-sousa-vaz" target="_blank" rel="noreferrer"><small>02 / Connect</small><strong>LinkedIn</strong><span>Experience, education and network</span><i>↗</i></a>
+        <a href="assets/André_Vaz_CV.pdf" target="_blank"><small>03 / Profile</small><strong>Résumé</strong><span>Full professional background in PDF</span><i>↓</i></a>
+      </div>
+      <div class="contact-footer reveal">
+        <div><span>Currently</span><b>Assistant · AI &amp; Data Consulting at EY</b></div>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/andr%C3%A9-filipe-de-sousa-vaz" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a href="https://github.com/AndreVaz51585" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="assets/André_Vaz_CV.pdf" target="_blank">Résumé ↗</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- FEATURED PROJECT -->
-  <section id="featured" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">⭐ Featured Project</span>
-        <h2>Poker Dice — <span class="gradient-text">Web & Mobile</span></h2>
-        <p class="section-sub">My most complete project: a full-stack web app + native Android app.</p>
-      </div>
-
-      <div class="featured-wrapper">
-        <!-- Web Version -->
-        <div class="featured-card featured-web">
-          <div class="featured-badge web-badge"><i class="fas fa-globe"></i> Web Version</div>
-          <div class="featured-img-wrap">
-            <img src="assets/ChelasPokerDiceWEB.png" alt="Poker Dice Web App" loading="lazy" decoding="async" />
-            <div class="featured-img-overlay">
-              <span class="overlay-label">Spring Boot + React</span>
-            </div>
-          </div>
-          <div class="featured-body">
-            <h3>Poker Dice Web</h3>
-            <p>
-              A full-stack multiplayer web game built with a <strong>Spring Boot (MVC)</strong> backend
-              exposing a REST API, and a <strong>React</strong> frontend with real-time state management.
-              Containerized with <strong>Docker</strong> and served through <strong>Nginx</strong>.
-            </p>
-            <div class="featured-tech">
-              <span class="tech-badge spring"><i class="fas fa-leaf"></i> Spring Boot</span>
-              <span class="tech-badge react"><i class="fab fa-react"></i> React</span>
-              <span class="tech-badge docker"><i class="fab fa-docker"></i> Docker</span>
-              <span class="tech-badge nginx"><i class="fas fa-server"></i> Nginx</span>
-            </div>
-            <div class="featured-highlights">
-              <div class="fh-item"><i class="fas fa-check-circle"></i> REST API with Spring MVC</div>
-              <div class="fh-item"><i class="fas fa-check-circle"></i> React SPA frontend</div>
-              <div class="fh-item"><i class="fas fa-check-circle"></i> Dockerized & deployable</div>
-              <div class="fh-item"><i class="fas fa-check-circle"></i> Multiplayer game logic</div>
-            </div>
-            <a class="muted small-note repo-note" href="https://github.com/AndreVaz51585/PokerDice-Daw.git" target="_blank">
-              <i class="fab fa-github"></i> View Repo
-            </a>
-          </div>
-        </div>
-
-        <!-- Mobile Version -->
-        <div class="featured-card featured-mobile">
-          <div class="featured-badge mobile-badge"><i class="fab fa-android"></i> Android Version</div>
-          <div class="featured-img-wrap">
-            <img src="assets/ChelasPokerDiceandroid.jpg" alt="Poker Dice Android App" loading="lazy" decoding="async" />
-            <div class="featured-img-overlay">
-              <span class="overlay-label">Kotlin + Compose</span>
-            </div>
-          </div>
-          <div class="featured-body">
-            <h3>Poker Dice Android</h3>
-            <p>
-              Native Android app for the same game using <strong>Jetpack Compose</strong> for a
-              modern declarative UI, fully written in <strong>Kotlin</strong>.
-              Features multiplayer sessions and smooth game flow.
-            </p>
-            <div class="featured-tech">
-              <span class="tech-badge kotlin"><i class="fas fa-k"></i> Kotlin</span>
-              <span class="tech-badge compose"><i class="fas fa-layer-group"></i> Compose</span>
-              <span class="tech-badge android"><i class="fab fa-android"></i> Android</span>
-            </div>
-            <div class="featured-highlights">
-              <div class="fh-item"><i class="fas fa-check-circle"></i> Jetpack Compose UI</div>
-              <div class="fh-item"><i class="fas fa-check-circle"></i> Kotlin coroutines</div>
-              <div class="fh-item"><i class="fas fa-check-circle"></i> Multiplayer support</div>
-              <div class="fh-item"><i class="fas fa-check-circle"></i> Clean architecture</div>
-            </div>
-            <a class="muted small-note repo-note" href="https://github.com/AndreVaz51585/PokerDice-Pdm.git" target="_blank">
-              <i class="fab fa-github"></i> View Repo
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Major Projects -->
-  <section id="major-projects" class="section section-dark">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Major Projects</span>
-        <h2>Systems with <span class="gradient-text">real architecture</span></h2>
-        <p class="section-sub">Larger builds that combine backend, frontend, AI, security, infrastructure and product thinking.</p>
-      </div>
-
-      <div class="major-projects-stack">
-        <div class="evolab-suite">
-          <div class="chatbot-card project-spotlight">
-            <div class="chatbot-img-wrap spotlight-img-wrap">
-              <img src="assets/EvoLab.jpeg" alt="EvoLabAsAService interface" loading="lazy" decoding="async" />
-            </div>
-
-            <div class="chatbot-content">
-              <div class="featured-badge evolab-badge"><i class="fas fa-network-wired"></i> Final Project Platform</div>
-              <h3>EvoLabAsAService</h3>
-              <p>
-                One of my largest projects: a platform for managing experimental projects with
-                a <strong>Spring Boot + Kotlin</strong> backend and a <strong>React + TypeScript</strong> frontend.
-                It connects authentication, job orchestration, Docker execution, AI validation, and chatbot support.
-              </p>
-              <p>
-                The backend includes a pool of workers that consume experimental projects from a
-                <strong>Channel</strong>, launch OpenEvolve containers using the <strong>docker-java</strong>
-                library, and persist job state in the database.
-              </p>
-
-              <div class="featured-tech">
-                <span class="tech-badge kotlin"><i class="fas fa-k"></i> Kotlin</span>
-                <span class="tech-badge spring"><i class="fas fa-leaf"></i> Spring Boot</span>
-                <span class="tech-badge react"><i class="fab fa-react"></i> React</span>
-                <span class="tech-badge typescript"><i class="fas fa-code"></i> TypeScript</span>
-                <span class="tech-badge docker"><i class="fab fa-docker"></i> docker-java</span>
-                <span class="tech-badge oauth"><i class="fas fa-lock"></i> OAuth 2.0</span>
-                <span class="tech-badge postgres"><i class="fas fa-database"></i> PostgreSQL</span>
-              </div>
-
-              <ul class="featured-highlights chatbot-highlights">
-                <li class="fh-item"><i class="fas fa-check-circle"></i> Worker pool consuming projects from a Kotlin Channel</li>
-                <li class="fh-item"><i class="fas fa-check-circle"></i> Launches OpenEvolve containers with docker-java</li>
-                <li class="fh-item"><i class="fas fa-check-circle"></i> OAuth 2.0 authentication and persisted job tracking</li>
-                <li class="fh-item"><i class="fas fa-check-circle"></i> Chatbot integration with OpenAI, Gemini and local model credential validation</li>
-              </ul>
-
-              <a class="btn primary" href="https://github.com/Projeto-Final-Leic-2026-Andre-Miguel/EvoLabAsAService.git" target="_blank">
-                <i class="fab fa-github"></i> View Repo
-              </a>
-            </div>
-          </div>
-
-          <div class="evolab-addon-wrap">
-            <div class="chatbot-card compact-spotlight">
-              <div class="chatbot-img-wrap">
-                <img src="assets/ChatBot.jpeg" alt="EvoLab Chatbot interface" loading="lazy" decoding="async" />
-              </div>
-
-              <div class="chatbot-content">
-                <div class="featured-badge chatbot-badge"><i class="fas fa-robot"></i> AI Assistant</div>
-                <h3>EvoLab Chatbot</h3>
-                <p>
-                  RAG-powered virtual assistant for EvoLab, built with <strong>Python</strong>,
-                  <strong>FastAPI</strong>, <strong>LangChain</strong>, and <strong>ChromaDB</strong>.
-                </p>
-                <p>
-                  The frontend is a lightweight JavaScript IIFE that builds the chatbot UI and sends requests
-                  to the FastAPI service, making integration into EvoLab simple.
-                </p>
-
-                <div class="featured-tech">
-                  <span class="tech-badge python"><i class="fab fa-python"></i> Python</span>
-                  <span class="tech-badge fastapi"><i class="fas fa-bolt"></i> FastAPI</span>
-                  <span class="tech-badge langchain"><i class="fas fa-link"></i> LangChain</span>
-                  <span class="tech-badge chroma"><i class="fas fa-database"></i> ChromaDB</span>
-                </div>
-
-                <ul class="featured-highlights chatbot-highlights">
-                  <li class="fh-item"><i class="fas fa-check-circle"></i> RAG pipeline with document retrieval</li>
-                  <li class="fh-item"><i class="fas fa-check-circle"></i> ChromaDB document storage</li>
-                  <li class="fh-item"><i class="fas fa-check-circle"></i> JavaScript IIFE integration</li>
-                  <li class="fh-item"><i class="fas fa-check-circle"></i> FastAPI service endpoint</li>
-                </ul>
-
-                <a class="btn primary" href="https://github.com/AndreVaz51585/Chatbot.git" target="_blank">
-                  <i class="fab fa-github"></i> View Repo
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-          <div class="chatbot-card compact-spotlight security-spotlight">
-            <div class="chatbot-img-wrap">
-              <img src="assets/VeridictAi.jpeg" alt="Veridict AI interface" loading="lazy" decoding="async" />
-            </div>
-
-            <div class="chatbot-content">
-              <div class="featured-badge security-badge"><i class="fas fa-shield-halved"></i> Security AI</div>
-              <h3>Veridict AI</h3>
-              <p>
-                Cybersecurity-focused prototype for detecting malicious links and suspicious phishing attempts,
-                combining analysis workflows with AI-assisted threat evaluation.
-              </p>
-              <div class="featured-tech">
-                <span class="tech-badge python"><i class="fab fa-python"></i> Python</span>
-                <span class="tech-badge fastapi"><i class="fas fa-bolt"></i> FastAPI</span>
-                <span class="tech-badge react"><i class="fab fa-react"></i> React</span>
-                <span class="tech-badge langchain"><i class="fas fa-link"></i> RAG</span>
-                <span class="tech-badge chroma"><i class="fas fa-database"></i> ChromaDB</span>
-              </div>
-              <ul class="featured-highlights chatbot-highlights">
-                <li class="fh-item"><i class="fas fa-check-circle"></i> Malicious URL detection</li>
-                <li class="fh-item"><i class="fas fa-check-circle"></i> Phishing suspicion analysis</li>
-                <li class="fh-item"><i class="fas fa-check-circle"></i> Google Safe Browsing API integration</li>
-                <li class="fh-item"><i class="fas fa-check-circle"></i> AI-assisted security prototype</li>
-              </ul>
-              <a class="btn primary" href="https://github.com/AndreVaz51585/Veridict-AI.git" target="_blank">
-                <i class="fab fa-github"></i> View Repo
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Project Archive</span>
-        <h2>Projects grouped by <span class="gradient-text">type</span></h2>
-        <p class="section-sub">The rest of my completed work, organized so the portfolio is easier to scan.</p>
-      </div>
-
-      <div class="project-category">
-        <div class="category-header">
-          <div>
-            <h3>API & Web Integrations</h3>
-            <p>Applications that connect APIs, persistence, and practical frontend workflows.</p>
-          </div>
-        </div>
-
-        <div class="projects-grid">
-          <article class="project-card">
-            <div class="project-img">
-              <img src="assets/paddle.jpg" alt="Paddle Courts Manager" loading="lazy" decoding="async">
-              <div class="project-img-overlay">
-                <a class="btn small primary" href="https://github.com/AndreVaz51585/Paddle-Courts-Manager.git" target="_blank">
-                  <i class="fab fa-github"></i> View Repo
-                </a>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3>Paddle Courts Manager</h3>
-              <p>Layered architecture with full CRUD, booking system and responsive JS frontend.</p>
-              <div class="project-tags">
-                <span>Kotlin</span><span>PostgreSQL</span><span>http4k</span><span>Express</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-img">
-              <img class="no-zoom-img" src="assets/ipw.png" alt="Foccacia Web API" loading="lazy" decoding="async">
-              <div class="project-img-overlay">
-                <a class="btn small primary" href="https://github.com/AndreVaz51585/Foccacia-webAPI.git" target="_blank">
-                  <i class="fab fa-github"></i> View Repo
-                </a>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3>Chelas Foccacia Web API</h3>
-              <p>Backend service integrating a football API with frontend search and data visualization.</p>
-              <div class="project-tags">
-                <span>Node.js</span><span>JavaScript</span><span>ElasticSearch</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="project-category">
-        <div class="category-header">
-          <div>
-            <h3>Games & Logic</h3>
-            <p>Game projects focused on state, UI rendering, persistence, and hardware/software interaction.</p>
-          </div>
-        </div>
-
-        <div class="projects-grid">
-          <article class="project-card">
-            <div class="project-img">
-              <img src="assets/Reversi.png" alt="Reversi Game" loading="lazy" decoding="async">
-              <div class="project-img-overlay">
-                <a class="btn small primary" href="https://github.com/AndreVaz51585/ReversiGame-tds.git" target="_blank">
-                  <i class="fab fa-github"></i> View Repo
-                </a>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3>Reversi Game</h3>
-              <p>Immutable-state Reversi in Kotlin with Jetpack Compose UI and MongoDB persistence.</p>
-              <div class="project-tags">
-                <span>Kotlin</span><span>Jetpack Compose</span><span>MongoDB</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-img">
-              <img src="assets/snake.png" alt="Snake Game" loading="lazy" decoding="async">
-              <div class="project-img-overlay">
-                <a class="btn small primary" href="https://github.com/AndreVaz51585/SnakeGame.git" target="_blank">
-                  <i class="fab fa-github"></i> View Repo
-                </a>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3>Snake Game</h3>
-              <p>Recreation of the classic Snake game in Kotlin using the Canvas API for rendering.</p>
-              <div class="project-tags">
-                <span>Kotlin</span><span>Canvas API</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-img">
-              <img src="assets/lic.png" alt="Roulette Game" loading="lazy" decoding="async">
-              <div class="project-img-overlay">
-                <a class="btn small primary" href="https://github.com/rodrigodorey/licSoftware.git" target="_blank">
-                  <i class="fab fa-github"></i> View Repo
-                </a>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3>Roulette Game</h3>
-              <p>Hardware/software split: Kotlin for game logic plus VHDL on FPGA for keypad and display I/O.</p>
-              <div class="project-tags">
-                <span>Kotlin</span><span>VHDL</span><span>FPGA</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="project-category">
-        <div class="category-header">
-          <div>
-            <h3>Security & Identity</h3>
-            <p>Work around identity flows, OAuth, OpenID and GitHub-backed task management.</p>
-          </div>
-        </div>
-
-        <div class="projects-grid projects-grid-small">
-          <article class="project-card">
-            <div class="project-img">
-              <img class="no-zoom-img" src="assets/gitTasks.jpg" alt="Git Tasks Manager" loading="lazy" decoding="async">
-              <div class="project-img-overlay">
-                <a class="btn small primary" href="https://github.com/DiogoTeixeira3/SegInf" target="_blank">
-                  <i class="fab fa-github"></i> View Repo
-                </a>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3>Git Tasks Manager</h3>
-              <p>JavaScript web app for managing project tasks with Git integration using OpenID and OAuth 2.0.</p>
-              <div class="project-tags">
-                <span>JavaScript</span><span>HTML</span><span>CSS</span><span>GitHub</span><span>OpenID</span><span>OAuth 2.0</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <span>André Vaz</span>
-      </div>
-      <p class="muted footer-copy">© 2025 André Vaz — Computer Engineering Student</p>
-    </div>
-  </footer>
-
-  <script src="script.js?v=20260512-name-fix"></script>
+  <footer class="site-footer"><span>André Vaz · <b data-year>2026</b></span><span>AI × Security × Systems</span><a href="#top">Back to top ↑</a></footer>
+  <script src="script.js?v=20260916-eybrand"></script>
 </body>
 </html>
